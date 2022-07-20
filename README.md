@@ -1,5 +1,6 @@
 # JetsonNano-Cloud-Edge-Car-speed-plate-monitoring
-## Proyecto de Graduación 2022 
+## Proyecto de Graduación 2022 <img width="854" alt="Captura de Pantalla 2022-07-19 a la(s) 18 34 42" src="https://user-images.githubusercontent.com/31348574/179875657-a03c6970-d59a-4835-a1cb-2854780db9dc.png">
+
 ### Realizado por Diego Bran y Sara Castro 
 
 En el presente repositorio se encuntran el proceso de implementaicón del sistema detallado en forma secuencial. Ademas se incluyen los documentos utilizados en la implementacion y los enlaces a las herramientas necesarias para la elaboración del mismo.
@@ -43,9 +44,11 @@ Al abrir el programa veremos el siguiente menu:
 **Paso 3**
 
 Seleccionamos la opcion "Flash from file" y buscaremos el archivo que descargamos en el paso 2 
-<img width="864" alt="BalnaEtcher02" src="https://user-images.githubusercontent.com/31348574/179870898-b9eaf581-5191-4719-a197-e86938dc5266.png">
+
+<img width="854" alt="BalenaEtcher02" src="https://user-images.githubusercontent.com/31348574/179875686-45b95685-0236-4bd7-b279-ff8eea6704aa.png">
 
 **Paso 4**
+
 
 Introduciremos la tarjeta microSD en la ranura de la compuradora y selecionaremos en el menu de Balena Etcher la opción "Select Targer" y selecionaremos la tarjeta microSD. Seguidamente Hacemos click en "Falsh" para montar el JetPack e iniciará el proceso
 
