@@ -17,6 +17,7 @@ Las fases para desarrollo del sistema son:
 6. Elaboración de archivos my-detection3.py y Car2.py
 7. Elaboración de función en servicio Lamnda para integración de servicios de *AWS*
 
+  
 ## Intalación componentes *Hardware* complementarios a Jetson Nano
 
 La primer fase del desarrollo se relaciona con la conexión de los componentes de *Hardware* auxiliares a la tarjeta Jetson Nano. Estos componentes son: 
@@ -29,43 +30,72 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 ### Conexión Tarjeta de Red ###
 
 **PASO 1:** Desatornillar los dos tornillos en el disipador de calor y removerlo
+<p align="center">
+  <img width="503" alt="image" src="https://user-images.githubusercontent.com/109677535/180099511-08a7eb5d-701f-472e-992d-66f63a2da984.png">
+</p>
 
 **PASO 2:** Conectar el cable de extensión al Wireless-AC8265 en el conector IPEX, apretar la tuerta y la arandela a cada conector SMA
+<p align="center">
+  <img width="303" alt="image" src="https://user-images.githubusercontent.com/109677535/180099577-8f0b983a-7078-4092-b379-70dd27cb175d.png">
+</p>
 
 **PASO 3:** Desatornillar el tornillo NIC en el centro
+<p align="center">
+  <img width="173" alt="image" src="https://user-images.githubusercontent.com/109677535/180099920-f1a3ae12-adb9-4873-bcee-9a2ce77fce4f.png">
+</p>
 
 **PASO 4:** Insertar el Wireless-AC8265 en la cuenca M.2 y atornillar nuevamente el tornillo NIC
+<p align="center">
+  <img width="272" alt="image" src="https://user-images.githubusercontent.com/109677535/180100075-f5d31ea0-37ce-495d-9d68-cd517ea6181b.png">
+</p>
 
 **PASO 5:** Atornillar nuevamente el disipador de calor 
+<p align="center">
+  <img width="290" alt="image" src="https://user-images.githubusercontent.com/109677535/180100196-78b897bc-13c5-42ac-bf57-0a6a966939d7.png">
+</p>
 
 ### Conexión Antenas
 
 **PASO 1:** Conectar las antenas en el conector IPEX
+<p align="center">
+  <img width="217" alt="image" src="https://user-images.githubusercontent.com/109677535/180100475-b0b5dc10-6cd4-4942-b0be-077dfd59e71c.png">
+</p>
+
+### Conexión Ventilador
+
+**PASO 1:** Conectar el ventilador a la tarjeta Jetson Nano en el puerto correspondiente
+<p align="center">
+  <img width="165" alt="image" src="https://user-images.githubusercontent.com/109677535/180100616-4c22c547-1fb1-40a9-b630-4804149d79fa.png">
+</p>
+
+**PASO 2:** Atornillar las cuatro esquinas del ventilador
+<p align="center">
+  <img width="272" alt="image" src="https://user-images.githubusercontent.com/109677535/180100865-b38e2f59-86d5-4a7f-92f6-59263e99431f.png">
+</p>
 
 ## Configuraciones iniciales en Jetson Nano
 
 Al finalizar las conexiones *Hardware* descritas anteriormente, se monta el JetPack en la Jetson Nano y se realizan las configuraciones iniciales.   
 
-**Paso 1**
-De la pagina de NVIDIA debemos deescargar la versión del JetPack compatible con nuestra tarjeta.En este caso se descargó la versión 4.6.1. Para la Jetson Nano Developer kit se puede desvargar desde el siguiente enlce -->[NVIDIA Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write-mac). AL terminar la descarga observaremos el seguiente archivo:
-<img width="868" alt="jetsonnanoiso" src="https://user-images.githubusercontent.com/31348574/179869364-78bbea81-dbd7-4b95-9b1b-d9c4a9934740.png">
+**Paso 1:** De la página de NVIDIA se descarga la versión del JetPack compatible con la Jetson Nano; en este caso se descargó la versión 4.6.1. Para la descarga se utilizó el siguiente enlace -->[NVIDIA Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write-mac). 
+Al terminar la descarga se obtiene el siguiente archivo:
+<p align="center">
+  <img width="368" alt="jetsonnanoiso" src="https://user-images.githubusercontent.com/31348574/179869364-78bbea81-dbd7-4b95-9b1b-d9c4a9934740.png">
+</p>
 
-**Paso 2** 
-Se debe descargar el software balena etcher, este software nos ayudará a montar el JetPack en la tarjeta microSD. EL software se puede descargar desde [aquí](https://www.balena.io/etcher/)
-Al abrir el programa veremos el siguiente menu: 
-<img width="864" alt="BalenaEtcher01" src="https://user-images.githubusercontent.com/31348574/179869885-593fe51c-c9ff-4df7-84a6-fc507eea93de.png">
+**Paso 2:** Se descarga el *Software* Balena Etcher, este se utiliza para montar el JetPack en una tarjeta microSD con un mín de 32 GB. El *Software* se puede descargar desde [aquí](https://www.balena.io/etcher/)
 
+Al abrir el programa se muestra el siguiente menu: 
+<p align="center">
+  <img width="364" alt="BalenaEtcher01" src="https://user-images.githubusercontent.com/31348574/179869885-593fe51c-c9ff-4df7-84a6-fc507eea93de.png">
+</p>
 
-**Paso 3**
+**Paso 3:** Se selecciona la opción *"Flash from file"*, y se busca el archivo que se descargó en el paso 2 
+<p align="center">
+  <img width="354" alt="BalenaEtcher02" src="https://user-images.githubusercontent.com/31348574/179875686-45b95685-0236-4bd7-b279-ff8eea6704aa.png">
+</p>
 
-Seleccionamos la opcion "Flash from file" y buscaremos el archivo que descargamos en el paso 2 
-
-<img width="854" alt="BalenaEtcher02" src="https://user-images.githubusercontent.com/31348574/179875686-45b95685-0236-4bd7-b279-ff8eea6704aa.png">
-
-**Paso 4**
-
-
-Introduciremos la tarjeta microSD en la ranura de la compuradora y selecionaremos en el menu de Balena Etcher la opción "Select Targer" y selecionaremos la tarjeta microSD. Seguidamente Hacemos click en "Falsh" para montar el JetPack e iniciará el proceso
+**Paso 4:** Se inserta la tarjeta microSD en la ranura de la computadora y se selecciona en el menú de Balena Etcher la opción *"Select Target"*. Se selecciona la tarjeta microSD y se hace click en *"Falsh"* para montar el JetPack e iniciará el proceso
 
 <img width="853" alt="BalenaEtcher03" src="https://user-images.githubusercontent.com/31348574/179871249-01019f3f-d7f0-47f0-b518-769deea9aed6.png">
 <img width="860" alt="BalenaEtcher04" src="https://user-images.githubusercontent.com/31348574/179871333-02dcaebd-4896-4bce-8ef4-283b8b4fc279.png">
