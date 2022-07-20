@@ -1,9 +1,19 @@
 # JetsonNano-Cloud-Edge-Car-speed-plate-monitoring
-## Proyecto de Graduación 2022 
-
-### Realizado por Diego Bran y Sara Castro 
+## Trabajo de Graduación  
+## Universidad Rafaél Landívar
+### Ingeniería Electrónica y Telecomunicaciones
 
 En el presente repositorio se encuentra el proceso de desarrollo de un sistema de monitoreo de rapidez y obtención de matrículas de automóviles, dicho proceso se detalla en forma secuencial. Adicional se incluyen los documentos durante el desarrollo y los enlaces a las herramientas necesarias para la elaboración del mismo.
+
+De forma general el sistema detecta automóviles que se mueven en un área delimitada, al mismo se le realiza un seguimiento y se asigna un identificador, luego se obtiene la rapidez que posee en un punto específico, y se captura una imagen del automóvil, tanto el identificador, la rapidez y la imagen del automóvil son enviados a los servicio de *Amazon Web Services* en donde se abstrae de la imagen los valores de la matrícula y junto al identificador y la rapidez se almacenan en una base de datos. Si el automóvil supera un límite de rapidez establecido se notifica por correo electrónico al infractor. 
+
+Las fases del desarrollo del sistema son: 
+1. Instalación componentes *Hardware* complementarios
+2. Configuraciones iniciales en la Jetson Nano
+3. Entrenamiento de una Red Neuronal Convolucional Profunda
+4. Registro de Jetson Nano en AWS
+5. Elaboración de Archivos Car.py y Tracker.py
+6. Elaboración de función en servicio Lamnda 
 
 La primer fase del desarrollo se relaciona con la conexión de los componentes de *Hardware* auxiliares a la tarjeta Jetson Nano. Estos componentes son: 
 1. Tarjeta de red 
