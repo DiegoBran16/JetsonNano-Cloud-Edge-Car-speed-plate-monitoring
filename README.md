@@ -96,7 +96,7 @@ En el menu de Azure dentro de la categoria *Servicios de Azure* seleccionamos *M
 
 
 
-## COnfiguración de la VM en Azure para el entrenamiento. 
+## Configuración de la VM en Azure para el entrenamiento. 
 **Paso1**
 Se inicio por conectarse por SSH a la maquina virtual por medio de la IP publica. Para ello se introdujo el siguiente comando en la maquina cliente
 
@@ -104,3 +104,29 @@ Se inicio por conectarse por SSH a la maquina virtual por medio de la IP publica
 
 
 Las 'x'deben reemplazarse por la direccion IP publica de la VM
+
+
+**Paso2** Por comodidad se optó por instalar una interfaz grafica, esta configuración se detalla desde este paso hasta el paso X. Para iniciar actualizamos los repositorios con el siguiente comando. 
+
+
+`sudo apt-get update`
+
+**Paso 3** Iniciamos la instalación de los componentes de la interfaz grafica ejecutando los siguientes comandos:
+
+`sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4`
+
+`sudo apt install xfce4-session`
+
+**Paso 4** Configutamos los servicios RDP con los siguientes comandos 
+
+`sudo apt-get -y install xrdp`
+
+`sudo systemctl enable xrdp`
+
+`echo xfce4-session >~/.xsession`
+
+`sudo service xrdp restart`
+
+Para ver el status del servicio ejecutamos el comando `sudo service xrdp status` y observaremos una salida como la siguiente: 
+
+<img width="716" alt="Captura de Pantalla 2022-07-19 a la(s) 19 46 07" src="https://user-images.githubusercontent.com/31348574/179877917-f91e0ffd-4915-47de-86db-6d7595df43e5.png">
