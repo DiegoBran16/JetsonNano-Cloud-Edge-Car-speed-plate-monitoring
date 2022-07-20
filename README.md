@@ -3,13 +3,12 @@
 
 ### Realizado por Diego Bran y Sara Castro 
 
-En el presente repositorio se encuntran el proceso de implementaicón del sistema detallado en forma secuencial. Ademas se incluyen los documentos utilizados en la implementacion y los enlaces a las herramientas necesarias para la elaboración del mismo.
-Inicialmente se implementan los componentes de Hardware complementarios en la terjeta Jetson Nano. 
+En el presente repositorio se encuentra el proceso de desarrollo de un sistema de monitoreo de rapidez y obtención de matrículas de automóviles, dicho proceso se detalla en forma secuencial. Adicional se incluyen los documentos durante el desarrollo y los enlaces a las herramientas necesarias para la elaboración del mismo.
 
-La primera fase de la implementación se relaciona con la conexión de los componentes de Hardware auxiliares a la tarjeta Jetson Nano. Estos componentes son: 
+La primer fase del desarrollo se relaciona con la conexión de los componentes de *Hardware* auxiliares a la tarjeta Jetson Nano. Estos componentes son: 
 1. Tarjeta de red 
-2. Ventilador 
-3. Camara
+2. Antenas 
+3. Ventilador
 
 A continuación se detallan los pasos para conectar estos componentes en la tarjeta: 
 
@@ -18,18 +17,18 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 **Paso1** 
 
 
-**Conexión del Ventilador**
+**Conexión de Antenas**
 ---
 **Paso1** 
 
-**Conexión de la Camara**
+**Conexión Ventilador**
 ---
 **Paso1** 
 
 
-## Jetson Nano first steps
+## Configuración Inicial Jetson Nano
 ---
-Al finalizar las conexiones fisicas del hardware de debe montar el JetPack en la Jetson Nano y realizar las configutaciones del primer inicio.   
+Al finalizar las conexiones *Hardware* descritas anteriormente, se monta el JetPack en la Jetson Nano y se realizan las configuraciones iniciales.   
 
 **Paso 1**
 De la pagina de NVIDIA debemos deescargar la versión del JetPack compatible con nuestra tarjeta.En este caso se descargó la versión 4.6.1. Para la Jetson Nano Developer kit se puede desvargar desde el siguiente enlce -->[NVIDIA Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write-mac). AL terminar la descarga observaremos el seguiente archivo:
