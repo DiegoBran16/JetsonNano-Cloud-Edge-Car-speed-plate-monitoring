@@ -13,8 +13,9 @@ Las fases para desarrollo del sistema son:
 2. Configuraciones iniciales en la Jetson Nano
 3. Entrenamiento de una red neuronal convolucional profunda
 4. Registro de Jetson Nano en *AWS*
-5. Elaboración de Archivos Car.py y Tracker.py
-6. Elaboración de función en servicio Lamnda para integración de servicios de *AWS*
+5. Configuración de servicios a utilizar en *AWS*
+6. Elaboración de archivos my-detection3.py y Car2.py
+7. Elaboración de función en servicio Lamnda para integración de servicios de *AWS*
 
 ## Intalación componentes *Hardware* complementarios a Jetson Nano
 
