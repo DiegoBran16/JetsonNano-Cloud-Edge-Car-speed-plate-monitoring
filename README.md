@@ -1,5 +1,5 @@
 # JetsonNano-Cloud-Edge-Car-speed-plate-monitoring
-## Proyecto de Graduación 2022 <img width="854" alt="Captura de Pantalla 2022-07-19 a la(s) 18 34 42" src="https://user-images.githubusercontent.com/31348574/179875657-a03c6970-d59a-4835-a1cb-2854780db9dc.png">
+## Proyecto de Graduación 2022 
 
 ### Realizado por Diego Bran y Sara Castro 
 
@@ -77,12 +77,6 @@ Iniciamos con clonar el repositorio de github [dusty-nv/jetson-inference](https:
 
 
 
-
-
-
-
-
-
 ## Aprovisionamiento de la VM en Azure para el entrenamiento de la red neuronal
 Para el aprovisionamiento de la maquina virtual se debe poseer una cuenta de Azure con una suscripción activa, para el desarrolo de este sistema utilizamos la version de $200 de prueba.
 
@@ -96,3 +90,17 @@ En el menu de Azure dentro de la categoria *Servicios de Azure* seleccionamos *M
 
 <img width="1792" alt="Azure2" src="https://user-images.githubusercontent.com/31348574/179875280-72d9bad7-e9ce-48fd-b1aa-d5fee7cd427a.png">
 
+**Paso 2** 
+
+
+
+
+
+## COnfiguración de la VM en Azure para el entrenamiento. 
+**Paso1**
+Se inicio por conectarse por SSH a la maquina virtual por medio de la IP publica. Para ello se introdujo el siguiente comando en la maquina cliente
+
+`ssh tesis@xxx.xxx.xxx.xxx` 
+
+
+Las 'x'deben reemplazarse por la direccion IP publica de la VM
