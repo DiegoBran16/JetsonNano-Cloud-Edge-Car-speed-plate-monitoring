@@ -39,7 +39,7 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 
 ### Conexión Antenas
 
-**PASO 1:** Conectar las antenas en el conectro IPEX
+**PASO 1:** Conectar las antenas en el conector IPEX
 
 ## Configuraciones iniciales en Jetson Nano
 
