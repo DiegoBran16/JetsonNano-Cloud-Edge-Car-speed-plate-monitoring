@@ -64,5 +64,32 @@ Conectamos la Jetson Nano a corriente, conectamos el monitor por medio de displa
 Al completar la instalación y configuración del JetPack, debemos iniciar el setup del contenedor de docker. 
 
 **Paso 1**
+Iniciamos con clonar el repositorio de github [dusty-nv/jetson-inference](https://github.com/dusty-nv/jetson-inference) para ello corremos el siguiente comando en la terminal de linux 
 
+`git clone --recursive https://github.com/dusty-nv/jetson-inference/`
+
+
+**Paso 2** 
+
+
+
+
+
+
+
+
+
+
+## Aprovisionamiento de la VM en Azure para el entrenamiento de la red neuronal
+Para el aprovisionamiento de la maquina virtual se debe poseer una cuenta de Azure con una suscripción activa, para el desarrolo de este sistema utilizamos la version de $200 de prueba.
+
+**Paso 1** 
+En el menu de Azure dentro de la categoria *Servicios de Azure* seleccionamos *Máquinas Virtuales*  y luego hacemos click en *crear*
+
+
+
+<img width="1592" alt="Azure1" src="https://user-images.githubusercontent.com/31348574/179875265-b5ad0775-b38a-4e5f-a3fb-6325cfe43ebc.png">
+
+
+<img width="1792" alt="Azure2" src="https://user-images.githubusercontent.com/31348574/179875280-72d9bad7-e9ce-48fd-b1aa-d5fee7cd427a.png">
 
