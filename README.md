@@ -27,8 +27,42 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 
 
 ## Jetson Nano first steps
+---
 Al finalizar las conexiones fisicas del hardware de debe montar el JetPack en la Jetson Nano y realizar las configutaciones del primer inicio.   
 
 **Paso 1**
 De la pagina de NVIDIA debemos deescargar la versión del JetPack compatible con nuestra tarjeta.En este caso se descargó la versión 4.6.1. Para la Jetson Nano Developer kit se puede desvargar desde el siguiente enlce -->[NVIDIA Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write-mac). AL terminar la descarga observaremos el seguiente archivo:
-![alt text](jetsonnanoiso.jpg)
+<img width="868" alt="jetsonnanoiso" src="https://user-images.githubusercontent.com/31348574/179869364-78bbea81-dbd7-4b95-9b1b-d9c4a9934740.png">
+
+**Paso 2** 
+Se debe descargar el software balena etcher, este software nos ayudará a montar el JetPack en la tarjeta microSD. EL software se puede descargar desde [aquí](https://www.balena.io/etcher/)
+Al abrir el programa veremos el siguiente menu: 
+<img width="864" alt="BalenaEtcher01" src="https://user-images.githubusercontent.com/31348574/179869885-593fe51c-c9ff-4df7-84a6-fc507eea93de.png">
+
+
+**Paso 3**
+
+Seleccionamos la opcion "Flash from file" y buscaremos el archivo que descargamos en el paso 2 
+<img width="864" alt="BalnaEtcher02" src="https://user-images.githubusercontent.com/31348574/179870898-b9eaf581-5191-4719-a197-e86938dc5266.png">
+
+**Paso 4**
+
+Introduciremos la tarjeta microSD en la ranura de la compuradora y selecionaremos en el menu de Balena Etcher la opción "Select Targer" y selecionaremos la tarjeta microSD. Seguidamente Hacemos click en "Falsh" para montar el JetPack e iniciará el proceso
+
+<img width="853" alt="BalenaEtcher03" src="https://user-images.githubusercontent.com/31348574/179871249-01019f3f-d7f0-47f0-b518-769deea9aed6.png">
+<img width="860" alt="BalenaEtcher04" src="https://user-images.githubusercontent.com/31348574/179871333-02dcaebd-4896-4bce-8ef4-283b8b4fc279.png">
+
+**Paso 5**
+Conectamos la Jetson Nano a corriente, conectamos el monitor por medio de display port, el teclado y mouse por usb. Al iniciar el sistema operativo nos solicitará la configuración inicial tipica de ubuntu como la zona horaria, el usuario y la contraseña. 
+
+**insertar imagen de el sistema conectado**
+**Insertar imagen del setup ubuntu**
+
+## Configuración del Contenedor dusty-nv/Jetson-Inference
+---
+
+Al completar la instalación y configuración del JetPack, debemos iniciar el setup del contenedor de docker. 
+
+**Paso 1**
+
+
