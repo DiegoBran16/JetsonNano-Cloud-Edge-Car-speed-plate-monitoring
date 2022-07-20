@@ -26,4 +26,9 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 **Paso1** 
 
 
-Al finalizar las conexiones fisicas del hardware de debe montar el JetPack en la Jetson Nano
+## Jetson Nano first steps
+Al finalizar las conexiones fisicas del hardware de debe montar el JetPack en la Jetson Nano y realizar las configutaciones del primer inicio.   
+
+**Paso 1**
+De la pagina de NVIDIA debemos deescargar la versión del JetPack compatible con nuestra tarjeta.En este caso se descargó la versión 4.6.1. Para la Jetson Nano Developer kit se puede desvargar desde el siguiente enlce -->[NVIDIA Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write-mac). AL terminar la descarga observaremos el seguiente archivo:
+![alt text](jetsonnanoiso.jpg)
