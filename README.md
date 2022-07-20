@@ -28,9 +28,13 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 ### Conexión Tarjeta de Red ###
 
 **PASO 1:** Desatornillar los dos tornillos en el disipador de calor y removerlo
+
 **PASO 2:** Conectar el cable de extensión al Wireless-AC8265 en el conector IPEX, apretar la tuerta y la arandela a cada conector SMA
+
 **PASO 3:** Desatornillar el tornillo NIC en el centro
+
 **PASO 4:** Insertar el Wireless-AC8265 en la cuenca M.2 y atornillar nuevamente el tornillo NIC
+
 **PASO 5:** Atornillar nuevamente el disipador de calor 
 
 ### Conexión Antenas
