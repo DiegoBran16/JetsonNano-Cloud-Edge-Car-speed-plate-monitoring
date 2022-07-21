@@ -250,6 +250,36 @@ RUN pip install sklearn
 
 **PASO 8:** Guardar los cambios del archivo 
 
+### Instalación Visual Studio Code
+
+Para la escritura y edición del código en Python se instaló Visual Studio Code con los siguientes pasos:
+
+**PASO 1:** En el directorio tesis@tesis:~$ Descargar información actualizada de paquetes y actualizar dependencias 
+
+`sudo apt-get update`
+
+**PASO 2:** Dirigirse al directorio Descargas
+
+`cd Descargas`
+
+**PASO 3:** Descargar e instalar curl en el sistema, para descarga de archivos
+
+`sudo apt-get install curl`
+
+**PASO 4:** Descargar el archivo .deb con el comando curl -L
+
+`curl -L tesis@tesis:~/Descargas$ curl -L https://github.com/toolboc/vscode/releases/download/1.32.3/code-oss_1.32.3-arm64.deb -o code-oss_1.32.3-arm64.deb`
+
+**PASO 5:** Realizar la instalación del paquete .deb con el comando dpkg y la letra -i de install
+
+`sudo dpkg -i code-oss_1.32.3-arm64.deb`
+
+**PASO 6:** Abrir la aplicación Code OSS desde el buscador de aplicaciones en el escritorio
+
+<p align="center">
+  <img width="449" alt="image" src="https://user-images.githubusercontent.com/109677535/180257545-7c4c273f-2ee2-4a47-aa63-10b9a150490f.png">
+</p>
+
 
 ## Aprovisionamiento de la VM en Azure para el entrenamiento de la red neuronal
 Para el aprovisionamiento de la maquina virtual se debe poseer una cuenta de Azure con una suscripción activa, para el desarrolo de este sistema utilizamos la version de $200 de prueba.
