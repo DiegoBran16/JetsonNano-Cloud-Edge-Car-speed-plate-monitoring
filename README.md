@@ -121,6 +121,12 @@ Al abrir el programa se muestra el siguiente menu:
 **PASO 6:** Al encender por primera vez la tarjeta Jetson Nano, el sistema operativo solicita la configuración inicial tipica de Ubuntu como la zona horaria, el usuario y la contraseña. El usuario establecido fue "tesis" 
 
 
+### Configuración Ventilador
+
+**PASO 1:** Instalar python3-dev en la tarjeta Jetson Nano con el siguiente comando:
+
+`apt install python3-dev`
+
 ## Configuración del Contenedor dusty-nv/Jetson-Inference
 ---
 
