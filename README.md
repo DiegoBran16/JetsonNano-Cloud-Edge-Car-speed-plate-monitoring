@@ -95,10 +95,11 @@ Al abrir el programa se muestra el siguiente menu:
   <img width="354" alt="BalenaEtcher02" src="https://user-images.githubusercontent.com/31348574/179875686-45b95685-0236-4bd7-b279-ff8eea6704aa.png">
 </p>
 
-**Paso 4:** Se inserta la tarjeta microSD en la ranura de la computadora y se selecciona en el menú de Balena Etcher la opción *"Select Target"*. Se selecciona la tarjeta microSD y se hace click en *"Falsh"* para montar el JetPack e iniciará el proceso
+**Paso 4:** Se inserta la tarjeta microSD en la ranura de la computadora y se selecciona en el menú de Balena Etcher la opción *"Select Target"*. Se selecciona la tarjeta microSD y se hace click en *"Flash"* para montar el JetPack.
 
-<img width="853" alt="BalenaEtcher03" src="https://user-images.githubusercontent.com/31348574/179871249-01019f3f-d7f0-47f0-b518-769deea9aed6.png">
-<img width="860" alt="BalenaEtcher04" src="https://user-images.githubusercontent.com/31348574/179871333-02dcaebd-4896-4bce-8ef4-283b8b4fc279.png">
+<p align="center">
+  <img width="360" alt="BalenaEtcher04" src="https://user-images.githubusercontent.com/31348574/179871333-02dcaebd-4896-4bce-8ef4-283b8b4fc279.png">
+</p>
 
 **Paso 5**
 Conectamos la Jetson Nano a corriente, conectamos el monitor por medio de display port, el teclado y mouse por usb. Al iniciar el sistema operativo nos solicitará la configuración inicial tipica de ubuntu como la zona horaria, el usuario y la contraseña. 
