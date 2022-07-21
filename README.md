@@ -364,37 +364,41 @@ Para el aprovisionamiento de la máquina virtual se necesita una cuenta de Azure
   <img width="506" alt="image" src="https://user-images.githubusercontent.com/109677535/180273528-1516c0fc-8bcd-48cd-96a2-35f13b9cea39.png">
 </p>
 
-## Configuración de la VM en Azure para el entrenamiento. 
-**Paso1**
-Se inicio por conectarse por SSH a la maquina virtual por medio de la IP publica. Para ello se introdujo el siguiente comando en la maquina cliente
+### Configuraciones e instalaciones en la máquina virtual 
+
+Durante la configuración de la máquina virtual se utilizó una máquina cliente con sistema operativo MacOS. Si se realizara en *Windows*, se recomienda utilizar [PuTTY](https://www.putty.org/)  
+
+**PASO 1:** Se realizó una conexión por SSH a la máquina virtual por medio de la IP pública. Para ello se introdujo el siguiente comando en la máquina cliente:
 
 `ssh tesis@xxx.xxx.xxx.xxx` 
 
+Las 'x' deben reemplazarse por la dirección IP pública de la máquina virtual
 
-Las 'x'deben reemplazarse por la direccion IP publica de la VM
+**PASO 2:** Por comodidad se optó por instalar una interfaz gráfica para la máquina virtual, esta configuración se detalla a continuación. 
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.1:** Actualizar los repositorios. 
 
-**Paso2** Por comodidad se optó por instalar una interfaz grafica, esta configuración se detalla desde este paso hasta el paso X. Para iniciar actualizamos los repositorios con el siguiente comando. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sudo apt-get update`
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.2** Instalar los componentes de la interfaz gráfica ejecutando los siguientes comandos:
 
-`sudo apt-get update`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4`
 
-**Paso 3** Iniciamos la instalación de los componentes de la interfaz grafica ejecutando los siguientes comandos:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sudo apt install xfce4-session`
 
-`sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.3:** Configurar los servicios RDP con los siguientes comandos: 
 
-`sudo apt install xfce4-session`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sudo apt-get -y install xrdp`
 
-**Paso 4** Configutamos los servicios RDP con los siguientes comandos 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sudo systemctl enable xrdp`
 
-`sudo apt-get -y install xrdp`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`echo xfce4-session >~/.xsession`
 
-`sudo systemctl enable xrdp`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sudo service xrdp restart`
 
-`echo xfce4-session >~/.xsession`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para ver el estado del servicio se ejecuta el comando `sudo service xrdp status` y se observa una salida como la siguiente: 
 
-`sudo service xrdp restart`
+<p align="center">
+  <img width="516" alt="Captura de Pantalla 2022-07-19 a la(s) 19 46 07" src="https://user-images.githubusercontent.com/31348574/179877917-f91e0ffd-4915-47de-86db-6d7595df43e5.png">
+</p>
 
-Para ver el status del servicio ejecutamos el comando `sudo service xrdp status` y observaremos una salida como la siguiente: 
-
-<img width="716" alt="Captura de Pantalla 2022-07-19 a la(s) 19 46 07" src="https://user-images.githubusercontent.com/31348574/179877917-f91e0ffd-4915-47de-86db-6d7595df43e5.png">
