@@ -148,14 +148,13 @@ Al abrir el programa se muestra el siguiente menu:
 
 A continuación se realiza el *setup* del contenedor de Docker. 
 
-**Paso 1**
-Iniciamos con clonar el repositorio de github [dusty-nv/jetson-inference](https://github.com/dusty-nv/jetson-inference) para ello corremos el siguiente comando en la terminal de linux 
+**PASO 1:** Clonar el repositorio de GitHub [dusty-nv/jetson-inference](https://github.com/dusty-nv/jetson-inference)
 
 `git clone --recursive https://github.com/dusty-nv/jetson-inference/`
 
+**PASO 2:** Ingresar al directorio jetson-inference 
 
-**Paso 2** 
-
+`cd jetson-inference/`
 
 
 
