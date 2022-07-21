@@ -193,7 +193,27 @@ RUN pip install sklearn
 
 `cd jetson-inference/`
 
-**PASO 9:** Montar archivo 
+**PASO 9:** Para la creación del directorio para la configuración y almacenamiento de los archivos con el código. Se crea una carpeta en el directorio *home* con el nombre "my-detection3" 
+
+`mkdir my-detection3`
+
+**PASO 10:** Ingresar al directorio my-detection3 
+
+`cd my-detection3`
+
+**PASO 11:** Crear un archivo vacío denominado my-detection3.py que se modificará posteriormente 
+
+`touch my-detection3.py`
+
+**PASO 12:** Crear un archivo vacío denominado Car2.py que se modificará posteriormente 
+
+`touch Car2.py`
+
+**PASO 13:** Ingresar al directorio jetson-inference
+
+`cd jetson-inference`
+
+**PASO 14:** Correr y montar carpeta my-detection3 en el nuevo contenedor
 
 `docker/run.sh -container docker-jetson:latest -volume~/my-detection3:/my-detection3`
 
