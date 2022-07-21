@@ -156,6 +156,46 @@ A continuación se realiza el *setup* del contenedor de Docker.
 
 `cd jetson-inference/`
 
+**PASO 3:** Iniciar el contenedor
+
+`docker/run.sh`
+
+**PASO 4:** Al correr por primera vez el archivo run.sh, se inicia la imagen del contenedor desde Docker Hub, y se solicita la instalación de modelos entrenados y Pytorch para Python3. Se presiona la barra espaciadora en la opción de "Aceptar" para la instalación de los modelos seleccionados por *default*
+
+<p align="center">
+  <img width="438" alt="image" src="https://user-images.githubusercontent.com/109677535/180108479-ac2bc354-ede5-409f-8c43-0366cc6456b5.png">
+</p>
+
+**PASO 5:** Salir del contenedor al finalizar la instalación de los modelos
+
+`exit`
+
+**PASO 6:** En el directorio *home* crear un archivo Dockerfile que importa toda la configuración del contenedor dusty-nv/jetson-inference/ y librerías adicionales para el sistema como se muestra a continuación:
+
+```
+FROM dustynv/jetson-inference:r32.7.1
+
+ENV LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
+
+RUN pip install AWSIoTPythonSDK
+RUN pip3 install --upgrade pip
+RUN apt-get update
+RUN pip install matplotlib
+RUN apt-get install -y python3-tk
+RUN pip install sklearn
+```
+
+**PASO 7:** Se construye el contenedor nuevo en el mismo directorio donde se creó el Dockerfile mencionado en el paso 6
+
+`sudo docker build-tag docker-jetson`
+
+**PASO 8:** Cambiar a directorio jetson-inference
+
+`cd jetson-inference/`
+
+**PASO 9:** Montar archivo 
+
+`docker/run.sh -container docker-jetson:latest -volume~/my-detection3:/my-detection3`
 
 
 ## Aprovisionamiento de la VM en Azure para el entrenamiento de la red neuronal
