@@ -78,7 +78,7 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 Al finalizar las conexiones *Hardware* descritas anteriormente,en la segunda fase del desarrollo se monta el JetPack en la Jetson Nano y se realizan sus configuraciones iniciales. Las secciones que incluyen esta fase son:   
 - Descarga de JetPack y configuración inicial Ubuntu
 - Configuración ventilador
-- Descarga y configuración contenedor
+- Descarga y configuración contenedor dusty-nv/jetson-inference/
 - Configuración Memoria Swap
 - Instalación Visual Studio Code
 
@@ -143,10 +143,10 @@ Al abrir el programa se muestra el siguiente menu:
 
 `./install.sh`
 
-## Configuración del Contenedor dusty-nv/Jetson-Inference
----
 
-Al completar la instalación y configuración del JetPack, debemos iniciar el setup del contenedor de docker. 
+### Descarga y configuración del contenedor dusty-nv/jetson-inference/
+
+A continuación se realiza el *setup* del contenedor de Docker. 
 
 **Paso 1**
 Iniciamos con clonar el repositorio de github [dusty-nv/jetson-inference](https://github.com/dusty-nv/jetson-inference) para ello corremos el siguiente comando en la terminal de linux 
