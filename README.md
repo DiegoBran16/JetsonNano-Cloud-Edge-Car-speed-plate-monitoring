@@ -280,25 +280,59 @@ Para la escritura y edición del código en Python se instaló Visual Studio Cod
   <img width="449" alt="image" src="https://user-images.githubusercontent.com/109677535/180257545-7c4c273f-2ee2-4a47-aa63-10b9a150490f.png">
 </p>
 
+## Entrenamiento de una red neuronal convolucional profunda
 
-## Aprovisionamiento de la VM en Azure para el entrenamiento de la red neuronal
-Para el aprovisionamiento de la maquina virtual se debe poseer una cuenta de Azure con una suscripción activa, para el desarrolo de este sistema utilizamos la version de $200 de prueba.
+Para que el sistema cuente con la capacidad de detectar automóviles que se mueven a lo largo de un área delimitada, se implemento en la tajeta Jetson Nano una red neuronal convolucional, la cual fue re-entrenada en una máquina virtual del proveedor de la nube Azure. A continuación se enlistan las etapas:
+- Aprovisionamiento de una máquina virtual en Azure
+- Configuraciones e instalaciones en la máquina virtual
+- Entrenamiento en la máquina virtual
+- Creacción archivo onnx para traslado del modelo entrenado a Jetson Nano
 
-**Paso 1** 
-En el menu de Azure dentro de la categoria *Servicios de Azure* seleccionamos *Máquinas Virtuales*  y luego hacemos click en *crear*
+### Aprovisionamiento de una máquina virtual en Azure 
 
+Para el aprovisionamiento de la máquina virtual se necesita una cuenta de Azure con una suscripción activa, en el desarrollo del sistema se utilizó la versión de prueba que otorga $200.
 
+**PASO 1:** En el menú de Azure dentro de la categoría "Servicios de Azure" se selecciona "Máquinas Virtuales"
 
-<img width="1592" alt="Azure1" src="https://user-images.githubusercontent.com/31348574/179875265-b5ad0775-b38a-4e5f-a3fb-6325cfe43ebc.png">
+<p align="center">
+  <img width="592" alt="Azure1" src="https://user-images.githubusercontent.com/31348574/179875265-b5ad0775-b38a-4e5f-a3fb-6325cfe43ebc.png">
+</p>
 
+**PASO 2:** Dar click en "Crear"
 
-<img width="1792" alt="Azure2" src="https://user-images.githubusercontent.com/31348574/179875280-72d9bad7-e9ce-48fd-b1aa-d5fee7cd427a.png">
+<p align="center">
+  <img width="592" alt="Azure2" src="https://user-images.githubusercontent.com/31348574/179875280-72d9bad7-e9ce-48fd-b1aa-d5fee7cd427a.png">
+</p>
 
-**Paso 2** 
+**PASO 3:** En la pestaña "Aspectos básicos", seleccionar la suscripción correcta y escribir el nombre para el grupo de recursos.
 
+<p align="center">
+  <img width="530" alt="image" src="https://user-images.githubusercontent.com/109677535/180265997-91682e62-06f7-4835-887c-81a88b25f6c9.png">
+</p>
 
+**PASO 4:** En la sección "Detalles de instancia" escribir el Nombre de la máquina virtual, la Región y Zona de disponibilidad.
 
+<p align="center">
+  <img width="532" alt="image" src="https://user-images.githubusercontent.com/109677535/180266927-5a640757-e8c1-4a9e-ae95-0549e6b58389.png">
+</p>
 
+**PASO 5:** Adicional en la sección "Detalles de instancia" seleccionar Tipo de seguridad, la Imagen, y el Tamaño.
+
+<p align="center">
+  <img width="533" alt="image" src="https://user-images.githubusercontent.com/109677535/180268097-227f7926-4f54-4f94-b869-4edaf971a6aa.png">
+</p>
+
+**PASO 6:** En la sección "Cuenta de administrador" se define el Tipo de autenticación, Nombre de usuario y Contraseña.
+
+<p align="center">
+  <img width="532" alt="image" src="https://user-images.githubusercontent.com/109677535/180269969-3f2657a6-25c8-4b0b-9f4c-2e866594ed96.png">
+</p>
+
+**PASO 6:** En la sección "Cuenta de administrador" se define el Tipo de autenticación, Nombre de usuario y Contraseña.
+
+<p align="center">
+  <img width="532" alt="image" src="https://user-images.githubusercontent.com/109677535/180269969-3f2657a6-25c8-4b0b-9f4c-2e866594ed96.png">
+</p>
 
 ## Configuración de la VM en Azure para el entrenamiento. 
 **Paso1**
