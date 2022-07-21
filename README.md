@@ -328,10 +328,40 @@ Para el aprovisionamiento de la máquina virtual se necesita una cuenta de Azure
   <img width="532" alt="image" src="https://user-images.githubusercontent.com/109677535/180269969-3f2657a6-25c8-4b0b-9f4c-2e866594ed96.png">
 </p>
 
-**PASO 6:** En la sección "Cuenta de administrador" se define el Tipo de autenticación, Nombre de usuario y Contraseña.
+**PASO 7:** En la sección "Opciones de disco" seleccionar el tipo de disco del sistema operativo.
 
 <p align="center">
-  <img width="532" alt="image" src="https://user-images.githubusercontent.com/109677535/180269969-3f2657a6-25c8-4b0b-9f4c-2e866594ed96.png">
+  <img width="491" alt="image" src="https://user-images.githubusercontent.com/109677535/180271537-84d42340-d227-4899-a40f-f90835f04c8b.png">
+</p>
+
+**PASO 8:** Seleccionar el tamaño de disco.
+
+<p align="center">
+  <img width="524" alt="image" src="https://user-images.githubusercontent.com/109677535/180272009-7c00b161-d10b-458a-acde-b2a59f4393b4.png">
+</p>
+
+**PASO 9:** En la sección de "Crear un disco" se define el Nombre, Tipo de origen y Tamaño seleccionado en el paso 8.
+
+<p align="center">
+  <img width="443" alt="image" src="https://user-images.githubusercontent.com/109677535/180272323-8783a0d4-ed47-464e-b56b-ba3d6b1d787b.png">
+</p>
+<p align="center">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/180272481-da316432-7d64-4988-8a91-05630e843e71.png">
+</p>
+
+**PASO 10:** En la sección de "Interfaz de red" se define la Red Virtual, Subred, e IP pública.
+
+<p align="center">
+  <img width="434" alt="image" src="https://user-images.githubusercontent.com/109677535/180272936-763bb5e4-86c2-4d45-a580-353b73349a21.png">
+</p>
+
+**PASO 11:** Finalmente Configurar el grupo de seguridad de red, y la seleccionar la Opción de equilibrio de carga.
+
+<p align="center">
+  <img width="506" alt="image" src="https://user-images.githubusercontent.com/109677535/180273442-c4494513-4246-498c-85c3-90fa3d1b839b.png">
+</p>
+<p align="center">
+  <img width="506" alt="image" src="https://user-images.githubusercontent.com/109677535/180273528-1516c0fc-8bcd-48cd-96a2-35f13b9cea39.png">
 </p>
 
 ## Configuración de la VM en Azure para el entrenamiento. 
