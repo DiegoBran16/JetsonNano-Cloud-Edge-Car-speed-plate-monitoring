@@ -75,7 +75,14 @@ A continuación se detallan los pasos para conectar estos componentes en la tarj
 
 ## Configuraciones iniciales en Jetson Nano
 
-Al finalizar las conexiones *Hardware* descritas anteriormente, se monta el JetPack en la Jetson Nano y se realizan las configuraciones iniciales.   
+Al finalizar las conexiones *Hardware* descritas anteriormente,en la segunda fase del desarrollo se monta el JetPack en la Jetson Nano y se realizan sus configuraciones iniciales. Las secciones que incluyen esta fase son:   
+- Descarga de JetPack y configuración inicial Ubuntu
+- Configuración ventilador
+- Descarga y configuración contenedor
+- Configuración Memoria Swap
+- Instalación Visual Studio Code
+
+### Descarga de JetPack y configuración inicial Ubuntu
 
 **PASO 1:** De la página de NVIDIA se descarga la versión del JetPack compatible con la Jetson Nano; en este caso se descargó la versión 4.6.1. Para la descarga se utilizó el siguiente enlace -->[NVIDIA Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write-mac). 
 Al terminar la descarga se obtiene el siguiente archivo:
