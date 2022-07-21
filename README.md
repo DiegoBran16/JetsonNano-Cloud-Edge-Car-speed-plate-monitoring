@@ -123,9 +123,17 @@ Al abrir el programa se muestra el siguiente menu:
 
 ### Configuración Ventilador
 
-**PASO 1:** Instalar python3-dev en la tarjeta Jetson Nano con el siguiente comando:
+**PASO 1:** Instalar python3-dev en la tarjeta Jetson Nano
 
 `apt install python3-dev`
+
+**PASO 2:** Diriguirse al directorio Descargas
+
+`cd Descargas`
+
+**PASO 3:** Clonar el repositorio Pyrestone/jetson-fan-ctl-git para la instalación del control automático del ventilador
+
+`git clone https://`
 
 ## Configuración del Contenedor dusty-nv/Jetson-Inference
 ---
