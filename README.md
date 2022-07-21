@@ -133,7 +133,15 @@ Al abrir el programa se muestra el siguiente menu:
 
 **PASO 3:** Clonar el repositorio Pyrestone/jetson-fan-ctl-git para la instalación del control automático del ventilador
 
-`git clone https://`
+`git clone https://github.com/Pyrestone/jetson-fan-ctl.git`
+
+**PASO 4:** Acceder a directorio jetson-fan-ctl
+
+`cd jetson-fan-ctl`
+
+**PASO 5:** Ejecutar archivo install.sh
+
+`./install.sh`
 
 ## Configuración del Contenedor dusty-nv/Jetson-Inference
 ---
