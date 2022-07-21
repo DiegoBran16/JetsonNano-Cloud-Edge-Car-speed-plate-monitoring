@@ -217,6 +217,39 @@ RUN pip install sklearn
 
 `docker/run.sh -container docker-jetson:latest -volume~/my-detection3:/my-detection3`
 
+### Configuración memoria swap
+
+**PASO 1:** En el directorio root@tesis:~# ejecutar el siguiente comando:
+
+`sudo systemctl disable nvzramconfig`
+
+**PASO 2:** Ejecutar el comando fallocate -l que permitirá manipular el espacio en disco SD
+
+`sudo fallocate -l 4G /mnt/4GB.swap`
+
+**PASO 3:** Correr el comando mkswap
+
+`sudo mkswap /mnt/4GB.swap`
+
+**PASO 4:** Correr el comando swapon
+
+`sudo swapon /mnt/4GB.swap`
+
+**PASO 5:** Ingresar al directorio root@tesis:/#
+
+**PASO 6:** Descargar e instalar nano
+
+`apt-get install nano`
+
+**PASO 7:** Ingresara al directorio root@tesis:/etc# y modificar el archivo fstab
+
+`nano fstab`
+<p align="center">
+  <img width="501" alt="image" src="https://user-images.githubusercontent.com/109677535/180253049-758fd669-c9da-4e27-85dc-1a1c40bbeb43.png">
+</p>
+
+**PASO 8:** Guardar los cambios del archivo 
+
 
 ## Aprovisionamiento de la VM en Azure para el entrenamiento de la red neuronal
 Para el aprovisionamiento de la maquina virtual se debe poseer una cuenta de Azure con una suscripción activa, para el desarrolo de este sistema utilizamos la version de $200 de prueba.
