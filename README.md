@@ -527,17 +527,31 @@ Dentro de la variable de entorno se realizan las instalación necesarias para el
 
 **PASO 2:** Editar el archivo train.py para que escriba un csv con los valores de pérdida de entrenamiento y validación 
 
-<img width="368" alt="image" src="https://user-images.githubusercontent.com/109677535/180341824-6f591854-2552-4e85-b58c-05f1be08dbd6.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/109677535/180341824-6f591854-2552-4e85-b58c-05f1be08dbd6.png">
+</p>
 
-<img width="371" alt="image" src="https://user-images.githubusercontent.com/109677535/180341889-5d0db410-bc0a-46f2-acf1-5496fb7c5115.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/109677535/180341889-5d0db410-bc0a-46f2-acf1-5496fb7c5115.png">
+</p>
 
-<img width="370" alt="image" src="https://user-images.githubusercontent.com/109677535/180341950-bd87b514-0d02-4613-926e-c7cba860caf6.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/109677535/180341950-bd87b514-0d02-4613-926e-c7cba860caf6.png">
+</p>
 
-<img width="376" alt="image" src="https://user-images.githubusercontent.com/109677535/180342054-ca92cdb7-4188-48ae-85a6-c081530b16f1.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/109677535/180342054-ca92cdb7-4188-48ae-85a6-c081530b16f1.png">
+</p>
 
-<img width="375" alt="image" src="https://user-images.githubusercontent.com/109677535/180342179-fa63eea2-1418-4d39-abaa-7d3b1455af32.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/109677535/180342179-fa63eea2-1418-4d39-abaa-7d3b1455af32.png">
+</p>
 
-<img width="373" alt="image" src="https://user-images.githubusercontent.com/109677535/180342265-7ab25e43-c62e-43bc-9e6e-409e94150051.png">
+<p align="center">
+  <img width="400" alt="image" src="https://user-images.githubusercontent.com/109677535/180342265-7ab25e43-c62e-43bc-9e6e-409e94150051.png">
+</p>
+
+
 
 
 
