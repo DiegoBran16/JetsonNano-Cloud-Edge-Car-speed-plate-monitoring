@@ -402,3 +402,120 @@ Las 'x' deben reemplazarse por la dirección IP pública de la máquina virtual
   <img width="516" alt="Captura de Pantalla 2022-07-19 a la(s) 19 46 07" src="https://user-images.githubusercontent.com/31348574/179877917-f91e0ffd-4915-47de-86db-6d7595df43e5.png">
 </p>
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.4:** Por medio de la aplicación *Microsoft Remote Desktop* se accedió por RDP a la interfaz gráfica de la máquina virtual. 
+
+<p align="center">
+  <img width="388" alt="image" src="https://user-images.githubusercontent.com/109677535/180332795-3fe17d85-c7b6-4271-abb3-936f10057517.png">
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.5:** Se escribe la IP pública asignada por Azure, y en la sección *"User account"* se selecciona *"Add User Account"*
+
+<p align="center">
+  <img width="292" alt="image" src="https://user-images.githubusercontent.com/109677535/180332879-11575793-b32a-42de-8a7e-9c750a387d14.png">
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.6:** Se agrega el usuario de la máquina virtual, la contraseña y un identificador, luego dar click en *"Add"* para guardar la configuación del usuario
+
+<p align="center">
+  <img width="291" alt="image" src="https://user-images.githubusercontent.com/109677535/180332952-11653337-990d-423e-826b-185963c091d5.png">
+  <img width="292" alt="image" src="https://user-images.githubusercontent.com/109677535/180332994-f4263019-70f8-4095-956a-40b5a3be4ec7.png">
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.7:** En la pestaña *"Display"* se selecciona la resolución de la pantalla y la calidad del color. Y dar click en *"Add"* 
+
+<p align="center">
+  <img width="297" alt="image" src="https://user-images.githubusercontent.com/109677535/180333036-0c71f74f-a719-4696-bb19-e7fa3bb71b78.png">
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**PASO 2.8:** Finalmente se puede ingresar a la máquina virtual al darle doble click.
+
+<p align="center">
+  <img width="290" alt="image" src="https://user-images.githubusercontent.com/109677535/180332721-8dad5685-a26e-49a8-8650-00708ca854eb.png">
+</p>
+
+**PASO 3:** Se creó una variable de entorno denominada tesisenv con los siguientes comandos:
+
+`apt install python3.8-venv` 
+
+`python3 -m venv tesisenv` 
+
+`source tesisenv/bin/activate` 
+
+<p align="center">
+  <img width="263" alt="image" src="https://user-images.githubusercontent.com/109677535/180335980-99e90d05-8856-4a97-b9b0-bc5d2a60037d.png">
+</p>
+
+Dentro de la variable de entorno se realizan las instalación necesarias para el entrenamiento de la red neuronal.
+
+**PASO 4:** Instalar Python 3.6 con los siguientes comandos:
+
+`sudo add-apt-repository ppa:deadsnakes/ppa` 
+
+`sudo apt-get install python3.6` 
+
+`apt install python3-virtualenv` 
+
+`virtualenv --python=/usr/bin/python3.6 /home/tesis/tesisenv/`
+
+**PASO 5:** Clonar el repositorio jetson-inference
+
+`git clone --recursive http://github.com/dusty-nv/jetson-inference/`
+
+**PASO 6:** Ingrear al directorio `cd jetson-inference/python/training/detection/ssd`
+
+**PASO 7:** Descargar la red Mobilenet V1 SSD que se utiliza como red base
+
+`wget https://nvidia.box.com/shared/static/djf5w54rjvpqocsiztzaandq1m3avr7c.pth -O models/mobilenet-v1-ssd-mp-0_675.pth`
+
+**PASO 8:** Instalar los requerimientos del archivo requirements.txt
+
+`pip3 install -v -r requirements.txt`
+
+**PASO 9:** Instalar torch
+
+`pip3 install torch`
+
+**PASO 10:** Instalar torchvision
+
+`pip3 install torchvision`
+
+**PASO 11:** Instalar Open Cv
+
+`pip3 install opencv-python`
+
+**PASO 12:** Instalar Nvidia Cuda Toolkit 
+
+`apt install nvidia-cuda-toolkit`
+
+**PASO 13:** Instalar Nvidia Cuda Toolkit 
+
+`apt install nvidia-cuda-toolkit`
+
+**PASO 14:** Instalar Nvidia Cuda Toolkit 
+
+`apt install nvidia-cuda-toolkit`
+
+**PASO 15:** Instalar cvs 
+
+`pip3 install cvs`
+
+**PASO 16:** Instalar ONNX 
+
+`pip3 install onnx`
+
+**PASO 17:** Instalar boto3
+
+`pip3 install boto3`
+
+**PASO 18:** Montar el disco para el almacenamiento del set de datos que se descargará para el entrenamiento identificando la etiqueta del disco.
+
+`lsblk -o NAME, HCTL, SIZE, MOUNTPOINT | grep -i "sd"`
+
+**PASO 19:** Se formatea el disco.
+
+`sudo parted /dev/sda --script mklabel gpt mkpart xfspart xfs 0% 100%`
+
+**PASO 20:** Se monta el disco en la carpeta donde se almacena las imagenes del set de datos.
+
+`sudo mount /dev/sda1 /home/tesis/jetson-inference/python/training/detection/ssd/data`
+
