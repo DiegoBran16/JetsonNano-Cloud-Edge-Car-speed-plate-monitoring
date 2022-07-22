@@ -515,7 +515,29 @@ Dentro de la variable de entorno se realizan las instalación necesarias para el
 
 `sudo parted /dev/sda --script mklabel gpt mkpart xfspart xfs 0% 100%`
 
-**PASO 20:** Se monta el disco en la carpeta donde se almacena las imagenes del set de datos.
+**PASO 20:** Se monta el disco en la carpeta donde se almacena las imágenes del set de datos.
 
 `sudo mount /dev/sda1 /home/tesis/jetson-inference/python/training/detection/ssd/data`
+
+###  Entrenamiento en la máquina virtual
+
+**PASO 1:** Descargar las imágenes utilizadas para el entrenamiento 
+
+`python3 open_images_downloader.py --max-images=25000 --class-names "Car" --data=data/Cars`
+
+**PASO 2:** Editar el archivo train.py para que escriba un csv con los valores de pérdida de entrenamiento y validación 
+
+<img width="368" alt="image" src="https://user-images.githubusercontent.com/109677535/180341824-6f591854-2552-4e85-b58c-05f1be08dbd6.png">
+
+<img width="371" alt="image" src="https://user-images.githubusercontent.com/109677535/180341889-5d0db410-bc0a-46f2-acf1-5496fb7c5115.png">
+
+<img width="370" alt="image" src="https://user-images.githubusercontent.com/109677535/180341950-bd87b514-0d02-4613-926e-c7cba860caf6.png">
+
+<img width="376" alt="image" src="https://user-images.githubusercontent.com/109677535/180342054-ca92cdb7-4188-48ae-85a6-c081530b16f1.png">
+
+<img width="375" alt="image" src="https://user-images.githubusercontent.com/109677535/180342179-fa63eea2-1418-4d39-abaa-7d3b1455af32.png">
+
+<img width="373" alt="image" src="https://user-images.githubusercontent.com/109677535/180342265-7ab25e43-c62e-43bc-9e6e-409e94150051.png">
+
+
 
