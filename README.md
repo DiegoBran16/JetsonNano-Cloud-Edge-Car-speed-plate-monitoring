@@ -557,3 +557,16 @@ De las imágenes anteriores se estableció por *Default* la red Movilenet V1 SSD
 
 `python3 train_ssd.py --data=data/Car --model-dir=models/Car --batch-size=103 --epochs=60`
 
+## Creacción archivo onnx para traslado del modelo entrenado a Jetson Nano
+
+**PASO 1:** En el archivo onnx.py comentar la opción .cuda(), ya que la máquina virtual utilizada no cuenta con GPU NVIDIA. 
+
+<p align="center">
+  <img width="474" alt="image" src="https://user-images.githubusercontent.com/109677535/180343724-d27957f2-716f-4ce5-a79c-67147eef8a0e.png">
+</p>
+
+**PASO 2:** Utilizar el archivo onnx.py para convertir de formato Pythorch a ONNX. 
+
+`python3 onnx_export.py --models-dir=models/Car`
+
+**PASO 3:** Enviar por correo el archivo onnx, y el archivo labels para descargarlo en la Jetson Nano. 
