@@ -551,7 +551,9 @@ Dentro de la variable de entorno se realizan las instalación necesarias para el
   <img width="400" alt="image" src="https://user-images.githubusercontent.com/109677535/180342265-7ab25e43-c62e-43bc-9e6e-409e94150051.png">
 </p>
 
+De las imágenes anteriores se estableció por *Default* la red Movilenet V1 SSD, se indica la ruta en dónde se almacena la red base, se importa la librería csv, y se incluye las modificaciones necesarias en el código para almacenar los valores de pérdida de entrenamieto y validación en formato csv.
 
+**PASO 3:** Correr el archivo train_ssd.py indicando el *batch-size*, los *epochs*, el nombre de la carpeta donde se almacenaron las imágenes de la clase *Car* y el directorio en donde se almacenarán los *Checkpoints* del modelo. 
 
-
+`python3 train_ssd.py --data=data/Car --model-dir=models/Car --batch-size=103 --epochs=60`
 
