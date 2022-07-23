@@ -648,7 +648,45 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
   <img width="825" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
 <p/>
 
-**PASO 12: **
+**PASO 12: ** Ya que el objeto fue creado, es necesario modificar la política de los certificados para garantizar que solamente el dispositivo con estos certificados pueda utilizar los recursos. Para ello dirigirse a _"all devices"_, seleccionar _"Things"_, y copiar el ARN del objeto.
+
+<p align="center">
+  <img width="1785" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584052-c71eeaca-afaa-4e98-8f9a-27be1629ece4.png">
+<p/>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.1** Dirigirse a la sección _"security"_, seleccionar _"Policy"_ y hacer click en la política. 
+<p align="center">
+  <img width="1785" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584178-ad2dcee5-298d-4c56-b7ae-95304cdd5bd9.png">
+<p/>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.2** Seleccionar la versión activa de la política
+
+<p align="center">
+  <img width="1474" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584275-57ced402-4cf5-48ed-823e-80a48f7dca25.png">
+<p/>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.3** Colocar la vista de la política en formato JSON y editar el parámetro _"Resource"_  y colocamos el ARN que se copió en el paso 12.
+
+
+<p align="center">
+  <img width="1507" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584356-e4809230-8935-4dab-a67e-1b3df84fc14f.png">
+<p/>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.4** Posteriormente se generará una nueva versión de la política, se debe seleccionar esta última versión y hacer click en _"set as active"_ 
+
+<p align="center">
+  <img width="1476" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584543-5478a2c2-cad3-4d3d-a1d3-2c7e5f57e083.png">
+<p/>
+
+
+
+
 
 
 
