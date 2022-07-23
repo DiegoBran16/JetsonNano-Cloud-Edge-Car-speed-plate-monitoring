@@ -573,7 +573,8 @@ De las imágenes anteriores se estableció por *Default* la red Movilenet V1 SSD
 
 ## Registro de Jetson Nano en AWS 
 
-Para otorgar acceso a los servicios de AWS se realizó el registro de la tarjeta Jetson Nano en IoT Core de AWS y se creó un usuario de IAM. 
+Para otorgar acceso a los servicios de AWS se realizó el registro de la tarjeta Jetson Nano en IoT Core de AWS.
+
 
 **PASO 1:**  Inicialmente se debe identificar la región con menor latencia para configurar los servicios. Para esto puede utilizarse la siguiente herramienta [Click aquí](https://ping.psa.fun/)
 <p align="center">
@@ -683,6 +684,25 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
 <p align="center">
   <img width="1476" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584543-5478a2c2-cad3-4d3d-a1d3-2c7e5f57e083.png">
 <p/>
+
+
+## Configuración de servicios en AWS
+
+Los servicios configurados a continuación son los siguientes: 
+
+- IAM
+- S3
+- DynamoDB
+- Lambda
+
+### Configuración de IAM 
+
+Este servico se utilizará para crear un grupo el cual poseerá permisos para colocar objetos en un bucket de S3 y se asignará un usuario, el cual se colocará en el código de la Jetson Nano. 
+
+**PASO 1:** En el servicio IAM colocarse en _"User Groups"_, y hacer click en _"Create group"_.
+
+
+
 
 
 
