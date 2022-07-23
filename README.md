@@ -635,23 +635,20 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
   <img width="615" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180581247-311fb404-167c-4c1c-854d-5720f38eeaf2.png">
 <p/>
 
-**PASO 11:** Dirigirse a la sección _"Secure"_, luego en la opción _"Certificates"_  hacer click en el certificado y en _"Policies"_ se selecciona la opción _"Attach policies"_ y se seleccióna la politica. 
+**PASO 11:** Dirigirse a la sección _"Secure"_, luego en la opción _"Certificates"_  hacer click en el certificado y en _"Policies"_ se selecciona la opción _"Attach policies"_ y se selecciona la política. 
 
 <p align="center">
   <img width="823" alt="Captura de Pantalla 2022-07-22 a la(s) 17 58 50" src="https://user-images.githubusercontent.com/31348574/180581805-1f8c4c07-84d1-413f-81d4-e41ceea57c7c.png">
 <p/>
 
 
-**PASO 11:** Dirigirse a la opción settings al final del menu lateral y gaurdar Endpoint del servicio. Este debe ser indicado en el codígo que se realizará en la tarjeta.
+**PASO 11:** Dirigirse a la opción _"setting"s_ al final del menú lateral y guardar el  _"Endpoint"_ del servicio. Este debe ser indicado en el código que se realizará en la tarjeta.
 
 <p align="center">
-
   <img width="825" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
-
-  
 <p/>
 
-
+**PASO 12: **
 
 
 
