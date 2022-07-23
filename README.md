@@ -570,3 +570,89 @@ De las imágenes anteriores se estableció por *Default* la red Movilenet V1 SSD
 `python3 onnx_export.py --models-dir=models/Car`
 
 **PASO 3:** Enviar por correo el archivo onnx, y el archivo labels para descargarlo en la Jetson Nano. 
+
+## Registro de Jetson Nano en AWS 
+
+Para otorgar acceso a los servicios de AWS se realizó el registro de la tarjeta Jetson Nano en IoT Core de AWS y se creó un usuario de IAM. 
+
+**PASO 1:**  Inicialmente se debe identificar la región con menor latencia para configurar los servicios. Para esto puede utilizarse la siguiente herramienta [Click aquí](https://ping.psa.fun/)
+<p align="center">
+  <img width="334" alt="Captura de Pantalla 2022-07-22 a la(s) 16 46 33" src="https://user-images.githubusercontent.com/31348574/180577780-eb2557eb-102c-46dd-b203-d4993e8ac172.png">
+  <img width="327" alt="Captura de Pantalla 2022-07-22 a la(s) 16 45 47" src="https://user-images.githubusercontent.com/31348574/180577753-0ec29c41-637b-4cee-8ce5-846826213f96.png">
+<p/>
+En nuestro caso la región con menor latencia fue US East(Ohio)
+
+**PASO 2:** Ingresar a la consola de Administración de AWS y buscar el servicio IoT Core 
+<p align="center">
+  <img width="500" alt="Captura de Pantalla 2022-07-22 a la(s) 17 05 18" src="https://user-images.githubusercontent.com/31348574/180578995-aeebd836-86a4-4c37-a4c6-ad2c004cf059.png">
+<p/>
+
+
+**PASO 3:** Expandir la sección *"Manage"* , dirigirse a *"Things"* y hacer click en *"Create Things"*
+<p align="center">
+  <img width="585" alt="Captura de Pantalla 2022-07-22 a la(s) 17 07 56" src="https://user-images.githubusercontent.com/31348574/180579177-d61458ed-3f90-4342-92ad-eadae6483b7a.png">
+<p/>
+
+
+**PASO 4:**  En la siguiente ventana se seleciona el número de cosas a crear y hacer click en *"next"*
+<p align="center">
+  <img width="507" alt="Captura de Pantalla 2022-07-22 a la(s) 17 11 06" src="https://user-images.githubusercontent.com/31348574/180579375-87e847d8-46d0-4563-a4fc-3bc78f89241e.png">
+<p/>
+
+**PASO 5:** Posteriormente se debe de crear un *"thing type, thing group y un billing group"* para identificar el recurso. Como se observa en la imagen.
+
+<p align="center">
+  <img width="612" alt="Captura de Pantalla 2022-07-22 a la(s) 17 16 02" src="https://user-images.githubusercontent.com/31348574/180579622-cccd2e60-c1f3-40cc-b144-cb9dc9801798.png">
+<p/>
+  
+ **PASO 6:**  En la sección *"Device Shadow"* se selecciona la opción *"No shadow"* y selecciona *"Next"*
+<p align="center"> 
+  <img width="611" alt="Captura de Pantalla 2022-07-22 a la(s) 17 22 53" src="https://user-images.githubusercontent.com/31348574/180580034-c00f527d-1c82-448a-bb25-881f8860ec1f.png">
+<p/>
+**PASO 7:** En la sección *"Configure device certificate-optional"* se selecciona *"Auto-generate a new certificate (recommended)"* y seleccionar *"Next"*
+<p align="center">
+  <img width="614" alt="Captura de Pantalla 2022-07-22 a la(s) 17 29 21" src="https://user-images.githubusercontent.com/31348574/180580380-445a87ec-eeff-4a91-acf0-027d25378c29.png">
+<p/>
+
+**PASO 8:**  En la sección _"Attach policies to certificate-optional"_ se selecciona _"Create a policy"_ y se escribe la siguiente política 
+<p align="center">
+  <img width="614" alt="Captura de Pantalla 2022-07-22 a la(s) 17 32 25" src="https://user-images.githubusercontent.com/31348574/180580551-798b91cf-82f8-44ae-b306-9702e57ca72f.png">
+<p/>
+
+<p align="center">
+  <img width="602" alt="Captura de Pantalla 2022-07-22 a la(s) 17 35 31" src="https://user-images.githubusercontent.com/31348574/180580694-f3c37e72-b373-45dc-91d6-0d5d6b3c957e.png">
+<p/>
+
+
+**PASO 9:** Se selecciona la política creada en el paso 8 y se selecciona _"Create thing"_
+<p align="center">
+  <img width="495" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180580959-19f38626-dc68-4576-9f9a-4a4bc98bc87d.png">
+<p/>
+
+**PASO 10:** Seguidamente se mostrarán los certificados y llaves del objeto, además del certificado raíz de la entidad certificadora de AWS. Deben de descargarse el certificado del dispositivo, el certificado Amazon Root CA 1 y las llaves pública y privada y dar click en done 
+
+<p align="center">
+  <img width="615" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180581247-311fb404-167c-4c1c-854d-5720f38eeaf2.png">
+<p/>
+
+**PASO 11:** Dirigirse a la sección _"Secure"_, luego en la opción _"Certificates"_  hacer click en el certificado y en _"Policies"_ se selecciona la opción _"Attach policies"_ y se seleccióna la politica. 
+
+<p align="center">
+  <img width="823" alt="Captura de Pantalla 2022-07-22 a la(s) 17 58 50" src="https://user-images.githubusercontent.com/31348574/180581805-1f8c4c07-84d1-413f-81d4-e41ceea57c7c.png">
+<p/>
+
+
+**PASO 11:** Dirigirse a la opción settings al final del menu lateral y gaurdar Endpoint del servicio. Este debe ser indicado en el codígo que se realizará en la tarjeta.
+
+<p align="center">
+
+  <img width="825" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
+
+  
+<p/>
+
+
+
+
+
+
