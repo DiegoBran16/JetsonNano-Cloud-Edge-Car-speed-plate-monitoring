@@ -704,7 +704,7 @@ Este servico se utilizará para crear un grupo el cual poseerá permisos para co
 
 ## Elaboración de archivos Car2.py y my-detection3.py
 
-Durante el desarrollo del sistema fue necesario la elaboración del archivo Car2.py, que permite el seguimiento e identificación de los automóviles que fuesen detectados por la red neuronal convolucional re-entrenada. Dicho archivo contine las clases Auto y Tracker cuyos diagramas se muestran a continuación:
+Durante el desarrollo del sistema fue necesario la elaboración del archivo Car2.py, que permite el seguimiento e identificación de los automóviles que fuesen detectados por la red neuronal convolucional profunda re-entrenada. Dicho archivo contiene las clases Auto y Tracker cuyos diagramas se muestran a continuación:
 
 <p align="center">
   <img width="350" alt="image" src="https://user-images.githubusercontent.com/109677535/180842453-84ee36f9-d071-422b-a6e5-35d05e33fc28.png">
@@ -717,14 +717,17 @@ En la clase Tracker la función *"tracking"* recibe una lista que contiene los v
   <img width="303" alt="image" src="https://user-images.githubusercontent.com/109677535/180845359-ac8bf047-a80e-424b-b6ea-7b9a1bd64139.png">
 <p/>
 
-A continuación se identifica si el automóvil en el *frame* actual ya se ha detectado anteriormente. Para ello es necesario evaluar con un *if* si la distancia euclidianda entre los centros de la detección anterior y la detección acutal es mayor a 100 px y si la diferencia de los centros en la coordenada "y" del automóvil detectado actualmente y el automóvil detectado con anteriorirdad es menor a 1/2 de la distancia euclidiana de las esquinas del recuadro que encierra la detección.
+A continuación se identifica si el automóvil en el *frame* actual ya se ha detectado anteriormente. Para ello es necesario evaluar con un *if* si la distancia euclidianda entre los centros de la detección anterior y la detección actual es mayor a 100 px y si la diferencia de los centros en la coordenada "y" del automóvil detectado actualmente y el automóvil detectado con anteriorirdad es menor a 1/2 de la distancia euclidiana de las esquinas del recuadro que encierra la detección.
 
-**Si se cumple** la condición se utiliza una variable llamada "validador" a la que se le asigna el valor *True*, lo cual indica que este ya había sido detectado anteriormente, y por lo tanto se agrega la nueva información de este automóvil utilizando las funciones de la clase Auto: "agreagar_info" para almacenar los nuevos valores de coordenadas de x1,y1,x2,y2 y sus centros; "set_centroides" para agregar los nuevos valores de las coordenadas de centros, adicional en esta función se guarta el tiempo de esta detección en el arreglo "tiempo"; además en la clase Tracker se agregan al diccionario "centorides" los nuevos valores de centros.
+**Si se cumple** la condición se utiliza una variable llamada "validador" a la que se le asigna el valor *True*, lo cual indica que este ya había sido detectado anteriormente, y por lo tanto se agrega la nueva información de este automóvil utilizando las funciones de la clase Auto: "agreagar_info" para almacenar los nuevos valores de coordenadas de x1,y1,x2,y2 y sus centros; "set_centroides" para agregar los nuevos valores de las coordenadas de centros, adicional en esta función se guarda el tiempo de esta detección en el arreglo "tiempo"; y en la clase Tracker se agregan al diccionario "centorides" los nuevos valores de centros.
 
-Cuando **No se cumple** la condición, y la variable "validador" se mantiene con su valor original *False* y la esquina inferior derecha del recuadro de detección (y2) es menor a 300 px, quiere decir que el automóvil detectado en el *frame* actual es una detección nueva. Por lo tanto es necesario crear un nuevo objeto Auto, al que con las funciones de la clase Auto: "asignar_id" se asigna el identificador correspondiente, "agregar_info" almacena los primeros valores de las coordenadas de los centros y x1, y1, x2, y2;  adicional en la clase Tracker se agrega al diccionario "centorides" losvalores de los centros y en "autos_detectados" se agrega el Auto que se detectó. Finalmente a la variable "car_id" correspondiente a la identificación del automóvil, se le incrementa a su valor uno, para que la siguiente detección siga la secuencia apropiada. 
+Cuando **No se cumple** la condición, y la variable "validador" se mantiene con su valor original *False* y la esquina inferior derecha del recuadro de detección (y2) es menor a 300 px, quiere decir que el automóvil detectado en el *frame* actual es una detección nueva. Por lo tanto es necesario crear un nuevo objeto Auto, al que con las funciones de la clase Auto: "asignar_id" se asigna el identificador correspondiente, "agregar_info" almacena los primeros valores de las coordenadas de los centros y x1, y1, x2, y2;  y en la clase Tracker se agrega al diccionario "centorides" los valores de los centros y en el diccionarioi "autos_detectados" se agrega el Auto que se detectó. Finalmente a la variable "car_id" correspondiente a la identificación del automóvil, se le incrementa a su valor uno, para que la siguiente detección siga la secuencia apropiada. 
 
 Dicho proceso se describe gráficamente a continuación:
 
+<p align="center">
+  <img width="526" alt="image" src="https://user-images.githubusercontent.com/109677535/180866487-8ef1add4-51f3-482e-9baf-113d43c9bebe.png">
+<p/>
 
 
 
