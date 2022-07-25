@@ -14,7 +14,7 @@ Las fases para desarrollo del sistema son:
 3. Entrenamiento de una red neuronal convolucional profunda
 4. Registro de Jetson Nano en *AWS*
 5. Configuración de servicios a utilizar en *AWS*
-6. Elaboración de archivos my-detection3.py y Car2.py
+6. Elaboración de archivos Car2.py y my-detection3.py  
 7. Elaboración de función en servicio Lamnda para integración de servicios de *AWS*
 
   
@@ -591,7 +591,7 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
 
 **PASO 3:** Expandir la sección *"Manage"* , dirigirse a *"Things"* y hacer click en *"Create Things"*
 <p align="center">
-  <img width="585" alt="Captura de Pantalla 2022-07-22 a la(s) 17 07 56" src="https://user-images.githubusercontent.com/31348574/180579177-d61458ed-3f90-4342-92ad-eadae6483b7a.png">
+  <img width="545" alt="Captura de Pantalla 2022-07-22 a la(s) 17 07 56" src="https://user-images.githubusercontent.com/31348574/180579177-d61458ed-3f90-4342-92ad-eadae6483b7a.png">
 <p/>
 
 
@@ -603,86 +603,87 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
 **PASO 5:** Posteriormente se debe de crear un *"thing type, thing group y un billing group"* para identificar el recurso. Como se observa en la imagen.
 
 <p align="center">
-  <img width="612" alt="Captura de Pantalla 2022-07-22 a la(s) 17 16 02" src="https://user-images.githubusercontent.com/31348574/180579622-cccd2e60-c1f3-40cc-b144-cb9dc9801798.png">
+  <img width="512" alt="Captura de Pantalla 2022-07-22 a la(s) 17 16 02" src="https://user-images.githubusercontent.com/31348574/180579622-cccd2e60-c1f3-40cc-b144-cb9dc9801798.png">
 <p/>
   
  **PASO 6:**  En la sección *"Device Shadow"* se selecciona la opción *"No shadow"* y selecciona *"Next"*
 <p align="center"> 
-  <img width="611" alt="Captura de Pantalla 2022-07-22 a la(s) 17 22 53" src="https://user-images.githubusercontent.com/31348574/180580034-c00f527d-1c82-448a-bb25-881f8860ec1f.png">
+  <img width="511" alt="Captura de Pantalla 2022-07-22 a la(s) 17 22 53" src="https://user-images.githubusercontent.com/31348574/180580034-c00f527d-1c82-448a-bb25-881f8860ec1f.png">
 <p/>
-**PASO 7:** En la sección *"Configure device certificate-optional"* se selecciona *"Auto-generate a new certificate (recommended)"* y seleccionar *"Next"*
+
+ **PASO 7:** En la sección *"Configure device certificate-optional"* se selecciona *"Auto-generate a new certificate (recommended)"* y seleccionar *"Next"*
 <p align="center">
-  <img width="614" alt="Captura de Pantalla 2022-07-22 a la(s) 17 29 21" src="https://user-images.githubusercontent.com/31348574/180580380-445a87ec-eeff-4a91-acf0-027d25378c29.png">
+  <img width="514" alt="Captura de Pantalla 2022-07-22 a la(s) 17 29 21" src="https://user-images.githubusercontent.com/31348574/180580380-445a87ec-eeff-4a91-acf0-027d25378c29.png">
 <p/>
 
 **PASO 8:**  En la sección _"Attach policies to certificate-optional"_ se selecciona _"Create a policy"_ y se escribe la siguiente política 
 <p align="center">
-  <img width="614" alt="Captura de Pantalla 2022-07-22 a la(s) 17 32 25" src="https://user-images.githubusercontent.com/31348574/180580551-798b91cf-82f8-44ae-b306-9702e57ca72f.png">
+  <img width="514" alt="Captura de Pantalla 2022-07-22 a la(s) 17 32 25" src="https://user-images.githubusercontent.com/31348574/180580551-798b91cf-82f8-44ae-b306-9702e57ca72f.png">
 <p/>
 
 <p align="center">
-  <img width="602" alt="Captura de Pantalla 2022-07-22 a la(s) 17 35 31" src="https://user-images.githubusercontent.com/31348574/180580694-f3c37e72-b373-45dc-91d6-0d5d6b3c957e.png">
+  <img width="502" alt="Captura de Pantalla 2022-07-22 a la(s) 17 35 31" src="https://user-images.githubusercontent.com/31348574/180580694-f3c37e72-b373-45dc-91d6-0d5d6b3c957e.png">
 <p/>
 
 
 **PASO 9:** Se selecciona la política creada en el paso 8 y se selecciona _"Create thing"_
 <p align="center">
-  <img width="495" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180580959-19f38626-dc68-4576-9f9a-4a4bc98bc87d.png">
+  <img width="595" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180580959-19f38626-dc68-4576-9f9a-4a4bc98bc87d.png">
 <p/>
 
 **PASO 10:** Seguidamente se mostrarán los certificados y llaves del objeto, además del certificado raíz de la entidad certificadora de AWS. Deben de descargarse el certificado del dispositivo, el certificado Amazon Root CA 1 y las llaves pública y privada y dar click en done 
 
 <p align="center">
-  <img width="615" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180581247-311fb404-167c-4c1c-854d-5720f38eeaf2.png">
+  <img width="515" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180581247-311fb404-167c-4c1c-854d-5720f38eeaf2.png">
 <p/>
 
 **PASO 11:** Dirigirse a la sección _"Secure"_, luego en la opción _"Certificates"_  hacer click en el certificado y en _"Policies"_ se selecciona la opción _"Attach policies"_ y se selecciona la política. 
 
 <p align="center">
-  <img width="823" alt="Captura de Pantalla 2022-07-22 a la(s) 17 58 50" src="https://user-images.githubusercontent.com/31348574/180581805-1f8c4c07-84d1-413f-81d4-e41ceea57c7c.png">
+  <img width="523" alt="Captura de Pantalla 2022-07-22 a la(s) 17 58 50" src="https://user-images.githubusercontent.com/31348574/180581805-1f8c4c07-84d1-413f-81d4-e41ceea57c7c.png">
 <p/>
 
 
-**PASO 11:** Dirigirse a la opción _"setting"s_ al final del menú lateral y guardar el  _"Endpoint"_ del servicio. Este debe ser indicado en el código que se realizará en la tarjeta.
+**PASO 12:** Dirigirse a la opción _"setting"s_ al final del menú lateral y guardar el  _"Endpoint"_ del servicio. Este debe ser indicado en el código que se realizará en la tarjeta.
 
 <p align="center">
-  <img width="825" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
+  <img width="525" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
 <p/>
 
-**PASO 12: ** Ya que el objeto fue creado, es necesario modificar la política de los certificados para garantizar que solamente el dispositivo con estos certificados pueda utilizar los recursos. Para ello dirigirse a _"all devices"_, seleccionar _"Things"_, y copiar el ARN del objeto.
+**PASO 13:** Ya que el objeto fue creado, es necesario modificar la política de los certificados para garantizar que solamente el dispositivo con estos certificados pueda utilizar los recursos. Para ello dirigirse a _"all devices"_, seleccionar _"Things"_, y copiar el ARN del objeto.
 
 <p align="center">
-  <img width="1785" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584052-c71eeaca-afaa-4e98-8f9a-27be1629ece4.png">
-<p/>
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.1** Dirigirse a la sección _"security"_, seleccionar _"Policy"_ y hacer click en la política. 
-<p align="center">
-  <img width="1785" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584178-ad2dcee5-298d-4c56-b7ae-95304cdd5bd9.png">
+  <img width="585" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584052-c71eeaca-afaa-4e98-8f9a-27be1629ece4.png">
 <p/>
 
 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.2** Seleccionar la versión activa de la política
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.1** Dirigirse a la sección _"security"_, seleccionar _"Policy"_ y hacer click en la política. 
 <p align="center">
-  <img width="1474" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584275-57ced402-4cf5-48ed-823e-80a48f7dca25.png">
+  <img width="585" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584178-ad2dcee5-298d-4c56-b7ae-95304cdd5bd9.png">
 <p/>
 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.3** Colocar la vista de la política en formato JSON y editar el parámetro _"Resource"_  y colocamos el ARN que se copió en el paso 12.
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.2** Seleccionar la versión activa de la política
 
 <p align="center">
-  <img width="1507" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584356-e4809230-8935-4dab-a67e-1b3df84fc14f.png">
+  <img width="574" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584275-57ced402-4cf5-48ed-823e-80a48f7dca25.png">
 <p/>
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 12.4** Posteriormente se generará una nueva versión de la política, se debe seleccionar esta última versión y hacer click en _"set as active"_ 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.3** Colocar la vista de la política en formato JSON y editar el parámetro _"Resource"_  y colocamos el ARN que se copió en el paso 13.
+
 
 <p align="center">
-  <img width="1476" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584543-5478a2c2-cad3-4d3d-a1d3-2c7e5f57e083.png">
+  <img width="507" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584356-e4809230-8935-4dab-a67e-1b3df84fc14f.png">
+<p/>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.4** Posteriormente se generará una nueva versión de la política, se debe seleccionar esta última versión y hacer click en _"set as active"_ 
+
+<p align="center">
+  <img width="476" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584543-5478a2c2-cad3-4d3d-a1d3-2c7e5f57e083.png">
 <p/>
 
 
@@ -701,8 +702,26 @@ Este servico se utilizará para crear un grupo el cual poseerá permisos para co
 
 **PASO 1:** En el servicio IAM colocarse en _"User Groups"_, y hacer click en _"Create group"_.
 
+## Elaboración de archivos Car2.py y my-detection3.py
 
+Durante el desarrollo del sistema fue necesario la elaboración del archivo Car2.py, que permite el seguimiento e identificación de los automóviles que fuesen detectados por la red neuronal convolucional re-entrenada. Dicho archivo contine las clases Auto y Tracker cuyos diagramas se muestran a continuación:
 
+<p align="center">
+  <img width="350" alt="image" src="https://user-images.githubusercontent.com/109677535/180842453-84ee36f9-d071-422b-a6e5-35d05e33fc28.png">
+  <img width="350" alt="image" src="https://user-images.githubusercontent.com/109677535/180844900-26415fb7-c58c-4901-b6d1-f0be652ffa55.png">
+<p/>
+
+En la clase Tracker la función *"tracking"* recibe una lista que contiene los valores x1, y1, x2, y2; estos corresponden a las coordenadas de la detección que devuelve el modelo ya re-entrenado. Con estos valores se calculan las coordenadas del centro del rectángulo de detección aplicando la ecuación del punto medio. 
+
+<p align="center">
+  <img width="303" alt="image" src="https://user-images.githubusercontent.com/109677535/180845359-ac8bf047-a80e-424b-b6ea-7b9a1bd64139.png">
+<p/>
+
+A continuación se identifica si el automóvil en el *frame* actual ya se ha detectado anteriormente. Para ello es necesario evaluar con un *if* si la distancia euclidianda entre los centros de la detección anterior y la detección acutal es mayor a 100 px y si la diferencia de los centros en la coordenada "y" del automóvil detectado actualmente y el automóvil detectado con anteriorirdad es menor a 1/2 de la distancia euclidiana de las esquinas del recuadro que encierra la detección.
+
+**Si se cumple** la condición se utiliza una variable llamada "validador" a la que se le asigna el valor *True*, lo cual indica que este ya había sido detectado anteriormente, y por lo tanto se agrega la nueva información de este automóvil utilizando las funciones de la clase Auto: "agreagar_info" para almacenar los nuevos valores de coordenadas de x1,y1,x2,y2 y sus centros; "set_centroides" para agregar los nuevos valores de las coordenadas de centros, adicional en esta función se guarta el tiempo de esta detección en el arreglo "tiempo"; además en la clase Tracker se agregan al diccionario "centorides" los nuevos valores de centros.
+
+Cuando **No se cumple** la condición, y la variable "validador" se mantiene con su valor original *False* y la esquina inferior derecha del recuadro de detección (y2) es menor a 300 px, quiere decir que el automóvil detectado en el *frame* actual es una detección nueva. Por lo tanto es necesario crear un nuevo objeto Auto, al que con las funciones de la clase Auto: "asignar_id" se asigna el identificador correspondiente, "agregar_info" almacena los primeros valores de las coordenadas de los centros y x1, y1, x2, y2;  adicional en la clase Tracker se agrega al diccionario "centorides" losvalores de los centros y en "autos_detectados" se agrega el Auto que se detectó. Finalmente a la variable "car_id" correspondiente a la identificación del automóvil, se le incrementa a su valor uno, para que la siguiente detección siga la secuencia apropiada. 
 
 
 
