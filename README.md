@@ -721,12 +721,12 @@ A continuación se identifica si el automóvil en el *frame* actual ya se ha det
 
 **Si se cumple** la condición se utiliza una variable llamada "validador" a la que se le asigna el valor *True*, lo cual indica que este ya había sido detectado anteriormente, y por lo tanto se agrega la nueva información de este automóvil utilizando las funciones de la clase Auto: "agreagar_info" para almacenar los nuevos valores de coordenadas de x1,y1,x2,y2 y sus centros; "set_centroides" para agregar los nuevos valores de las coordenadas de centros, adicional en esta función se guarda el tiempo de esta detección en el arreglo "tiempo"; y en la clase Tracker se agregan al diccionario "centorides" los nuevos valores de centros.
 
-Cuando **No se cumple** la condición, y la variable "validador" se mantiene con su valor original *False* y la esquina inferior derecha del recuadro de detección (y2) es menor a 300 px, quiere decir que el automóvil detectado en el *frame* actual es una detección nueva. Por lo tanto es necesario crear un nuevo objeto Auto, al que con las funciones de la clase Auto: "asignar_id" se asigna el identificador correspondiente, "agregar_info" almacena los primeros valores de las coordenadas de los centros y x1, y1, x2, y2;  y en la clase Tracker se agrega al diccionario "centorides" los valores de los centros y en el diccionarioi "autos_detectados" se agrega el Auto que se detectó. Finalmente a la variable "car_id" correspondiente a la identificación del automóvil, se le incrementa a su valor uno, para que la siguiente detección siga la secuencia apropiada. 
+Cuando **No se cumple** la condición, y la variable "validador" se mantiene con su valor original *False* y la esquina inferior derecha del recuadro de detección (y2) es menor a 300 px, quiere decir que el automóvil detectado en el *frame* actual es una detección nueva. Por lo tanto es necesario crear un nuevo objeto Auto, al que con las funciones de la clase Auto: "asignar_id" se asigna el identificador correspondiente, "agregar_info" almacena los primeros valores de las coordenadas de los centros y x1, y1, x2, y2;  y en la clase Tracker se agrega al diccionario "centorides" los valores de los centros y en el diccionario "autos_detectados" se agrega el Auto que se detectó. Finalmente a la variable "car_id" correspondiente a la identificación del automóvil, se le incrementa a su valor uno, para que la siguiente detección siga la secuencia apropiada. 
 
 Dicho proceso se describe gráficamente a continuación:
 
 <p align="center">
-  <img width="526" alt="image" src="https://user-images.githubusercontent.com/109677535/180866487-8ef1add4-51f3-482e-9baf-113d43c9bebe.png">
+  <img width="726" alt="image" src="https://user-images.githubusercontent.com/109677535/180866487-8ef1add4-51f3-482e-9baf-113d43c9bebe.png">
 <p/>
 
 
