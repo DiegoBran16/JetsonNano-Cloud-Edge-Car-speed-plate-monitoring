@@ -723,6 +723,9 @@ A continuación se identifica si el automóvil en el *frame* actual ya se ha det
 
 Cuando **No se cumple** la condición, y la variable "validador" se mantiene con su valor original *False* y la esquina inferior derecha del recuadro de detección (y2) es menor a 300 px, quiere decir que el automóvil detectado en el *frame* actual es una detección nueva. Por lo tanto es necesario crear un nuevo objeto Auto, al que con las funciones de la clase Auto: "asignar_id" se asigna el identificador correspondiente, "agregar_info" almacena los primeros valores de las coordenadas de los centros y x1, y1, x2, y2;  adicional en la clase Tracker se agrega al diccionario "centorides" losvalores de los centros y en "autos_detectados" se agrega el Auto que se detectó. Finalmente a la variable "car_id" correspondiente a la identificación del automóvil, se le incrementa a su valor uno, para que la siguiente detección siga la secuencia apropiada. 
 
+Dicho proceso se describe gráficamente a continuación:
+
+
 
 
 
