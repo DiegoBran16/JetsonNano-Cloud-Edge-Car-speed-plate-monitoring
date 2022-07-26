@@ -698,9 +698,43 @@ Los servicios configurados a continuación son los siguientes:
 
 ### Configuración de IAM 
 
-Este servico se utilizará para crear un grupo el cual poseerá permisos para colocar objetos en un bucket de S3 y se asignará un usuario, el cual se colocará en el código de la Jetson Nano. 
+Este servico se utilizará para crear un grupo el cual poseerá permisos para colocar objetos en un bucket de S3 y se asignará un usuario, el cual se colocará en el código de la Jetson Nano.  
 
-**PASO 1:** En el servicio IAM colocarse en _"User Groups"_, y hacer click en _"Create group"_.
+
+**PASO 1:** En el servicio IAM colocarse en _"User Groups"_, y hacer click en _"Create group"_ y se selecciona _"Create Group"_
+<img width="606" alt="Screen Shot 2022-07-25 at 19 28 23" src="https://user-images.githubusercontent.com/31348574/180902888-31f572cb-aaa7-4450-8ab5-9540f420ca9c.png">
+
+**ACLARACIÓN:** De momento no se creará ninguna política, pues es neceario el ARN de S3.
+
+**PASO 2:** En la sección _"Users"_ seleccionar _"Add Users"_
+
+
+
+<img width="648" alt="Screen Shot 2022-07-25 at 19 45 14" src="https://user-images.githubusercontent.com/31348574/180904602-a2a15998-2086-4275-af9e-d876a5e0180b.png">
+
+
+**PASO 3:** Se define un nombre de usuario y se marca el _checkbox_ _"Access Key-Programmatic Access"_ ya que se colocara en el codígo de la Jetson Nano y hacer click en _"Next:Permissions"_ 
+
+
+
+<img width="660" alt="Screen Shot 2022-07-25 at 19 47 59" src="https://user-images.githubusercontent.com/31348574/180904898-d90ba4e4-70a4-4258-9f80-f1ae6198a716.png">
+
+
+**PASO 4:** En _"Set permissions"_ seleccionamos _"Add user to group"_, seleccionar el grupo que se creó en el paso 3 y hacer click en _"Next"_ 
+
+
+
+**PASO 5:** En  _"Add tags"_ seleccionamos _"Next:Review"_ 
+
+<img width="666" alt="Screen Shot 2022-07-25 at 19 54 48" src="https://user-images.githubusercontent.com/31348574/180905639-dde520db-695f-45f3-8ede-5f9d6e48c508.png">
+
+
+
+
+
+
+
+
 
 ## Elaboración de archivos Car2.py y my-detection3.py
 
