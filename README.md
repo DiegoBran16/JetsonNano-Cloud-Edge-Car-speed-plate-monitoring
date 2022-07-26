@@ -816,11 +816,12 @@ Al obtener el modelo que mejor se ajusta a los datos, la derivada del modelo es 
 
 De la imagen anterior se marca la medida que se toma de referencia, esta corresponde a un Suzuki Swift, y la medida en pixeles tomada con la aplicación Paint fue de 52 px, dando un factor de conversión 0.266, dicho valor se utiliza para convertir px/s en km/h.
 
+Lo descrito anteriormente se representa gráficamente a continuación:
 
-
-
-
-
+<p align="center">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181090653-fad79f6c-96e1-48b7-b40e-960d0931038a.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181090749-9bf316c6-e097-43a1-b405-2cbd2951d6e7.png">
+<p/>
 
 
 
