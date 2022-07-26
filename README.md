@@ -722,6 +722,7 @@ Este servico se utilizará para crear un grupo el cual poseerá permisos para co
 
 **PASO 4:** En _"Set permissions"_ seleccionamos _"Add user to group"_, seleccionar el grupo que se creó en el paso 3 y hacer click en _"Next"_ 
 
+<img width="664" alt="Screen Shot 2022-07-25 at 19 46 21" src="https://user-images.githubusercontent.com/31348574/180905978-6aae15be-f227-4299-a7d7-afad40f8f9f6.png">
 
 
 **PASO 5:** En  _"Add tags"_ seleccionamos _"Next:Review"_ 
@@ -729,9 +730,29 @@ Este servico se utilizará para crear un grupo el cual poseerá permisos para co
 <img width="666" alt="Screen Shot 2022-07-25 at 19 54 48" src="https://user-images.githubusercontent.com/31348574/180905639-dde520db-695f-45f3-8ede-5f9d6e48c508.png">
 
 
+**PASO 6:** A continuación se mostrara un resumen y se debe hacer click en "Create User", posteriormente saldrá un mensaje de éxito y los detalles del usuario. EN este momento se debe descargar el .CSV ya que es el único momento en el cual se pueden descargar las llaves de acceso, despues de esta pantalla no es posible observar la llave de acceso privada. Despues de descargar el .CSV hacer click en _"Close"_
 
 
+<img width="651" alt="Screen Shot 2022-07-25 at 20 05 49" src="https://user-images.githubusercontent.com/31348574/180906947-c60ad235-a72b-4d13-b83f-1ff9f3ac8cb3.png">
 
+
+### Configuración del Bucket de S3 
+
+**PASO 1:** Dirigirse a el servicio Amazon Simple Storage Service (S3), en la sección _"Buckets"_ seleccionar la opción _"Create Bucket"_
+
+<img width="937" alt="Screen Shot 2022-07-25 at 20 10 52" src="https://user-images.githubusercontent.com/31348574/180907730-39a2f2ea-7e9a-44ee-ae2e-995e6fcb6183.png">
+
+**PASO 2:** Se coloca un identificador para el _"Bucket"_, la región en la que se creará el _"Bucket"_ y en _"Obejcts Ownership"_ marcar _"ACLs disabled (recomended)"_. 
+
+<img width="855" alt="Screen Shot 2022-07-25 at 20 14 47" src="https://user-images.githubusercontent.com/31348574/180908414-9d95c150-f435-4157-8459-326bc2562af2.png">
+
+**PASO 3:** Seleccionar _"Block all public access"_
+
+<img width="645" alt="Screen Shot 2022-07-25 at 20 20 54" src="https://user-images.githubusercontent.com/31348574/180908673-ede6d3d9-e601-4a48-b1cf-8191067bca50.png">
+
+**PASO 4:** En _"Bucket Versioning"_ y _"Default Encryption"_ se dejan los valores predeterminados y se da click en _"Create bucket"_
+
+<img width="660" alt="Screen Shot 2022-07-25 at 20 21 37" src="https://user-images.githubusercontent.com/31348574/180908749-0de7d9f3-e9fa-4d94-84eb-5bb0cf0ef02e.png">
 
 
 
