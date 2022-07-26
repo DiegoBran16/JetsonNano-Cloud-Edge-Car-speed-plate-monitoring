@@ -816,6 +816,16 @@ Al obtener el modelo que mejor se ajusta a los datos, la derivada del modelo es 
 
 De la imagen anterior se marca la medida que se toma de referencia, esta corresponde a un Suzuki Swift, y la medida en pixeles tomada con la aplicación Paint fue de 52 px, dando un factor de conversión 0.266, dicho valor se utiliza para convertir px/s en km/h.
 
+A continuación se procede con ejecutar la función "data_to_aws" en ella se utiliza el protocolo de mensajería MQTT para el envío de los valores de rapidez e identificador del automóvil al servicio de IoT Core de AWS. La función recibe: la variable que contiene el tiempo en que el valor de centro de la coordenada y del automóvil supera el valor de 310 px, el identificador, la rapidez obtenida, el directorio local donde esta guardada la imagen del automóvil, y el nombre de la imagen. 
+
+En la función se configura el *"ENDPOINT"*, *"CLIENT_ID"*, *"PATH_TO_CERTIFICATE"*, *"PATH_TO PRIVATE_KEY"*, *"PATH_TO_AMAZON_ROOT_CA_1"*, se establece el *Timeout* de conexión y se configura la cola de publicación sin conexión. Se asigna en la variable "dataidaws" la concatenación del identificador con el tiempo recibido, en la variable "dataspeddaws" se asigna la rapidez del automóvil obtenida, y ambas variables son contenidas en un mensaje con formato json.
+
+A continuación se conecta al cliente y se publica en el *"TOPIC"* el mensaje en el servvicio de AWS IoT Core, tras publicarse se desconecta al cliente se ejecutan las función "upload_files".
+
+En esta función se recibe el directorio local donde se encuentra la imagen del automóvil, el nombre del *bucket* (carimages-traffic-jetson-nano-4gb) y el nombre de la imagen. Haciendo uso de la librería boto3, se configura el *"ACCESS_KEY_ID"* y *"SECRET_ACCESS_KEY"*, luego se accede al directorio donde se encuentra la imagen y se sube al bucket establecido.
+
+Finalmente se ejecuta la función "delete_local_image" que recibe el directorio donde se encuentra la imagen del automóvil y esta es eliminada.
+
 Lo descrito anteriormente se representa gráficamente a continuación:
 
 <p align="center">
@@ -823,5 +833,8 @@ Lo descrito anteriormente se representa gráficamente a continuación:
   <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181090749-9bf316c6-e097-43a1-b405-2cbd2951d6e7.png">
 <p/>
 
-
-
+<p align="center">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181116172-e9c3d01f-e8e3-4fd6-a372-46d95e4efb57.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181116082-6835fd7c-5400-4167-a36a-c52ec5e10451.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181116880-97e2a990-d46f-4ac2-aa91-4e30c48bdba8.png">
+<p/>
