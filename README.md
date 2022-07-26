@@ -704,6 +704,8 @@ Este servico se utilizará para crear un grupo el cual poseerá permisos para co
 
 ## Elaboración de archivos Car2.py y my-detection3.py
 
+### Car2.py
+
 Durante el desarrollo del sistema fue necesario la elaboración del archivo Car2.py, que permite el seguimiento e identificación de los automóviles que fuesen detectados por la red neuronal convolucional profunda re-entrenada. Dicho archivo contiene las clases Auto y Tracker cuyos diagramas se muestran a continuación:
 
 <p align="center">
@@ -728,6 +730,16 @@ Dicho proceso se describe gráficamente a continuación:
 <p align="center">
   <img width="726" alt="image" src="https://user-images.githubusercontent.com/109677535/180866487-8ef1add4-51f3-482e-9baf-113d43c9bebe.png">
 <p/>
+
+### my-detection3.py
+
+Para que la tarjeta Jetson Nano realice la lectura de un video, detecté los automóviles que se mueven en el mismo, obtenga la rapidez aproximada del automóvil y envíe una imagen, su identificador y la rapidez del mismo a los servicios de AWS, son necesarias las funciones dentro del archivo my-detection3.py. Es importante resaltar que al archivo se le importa Car2.py para acceder a sus clases.
+
+Dentro del archivo, se utiliza un *while* que realiza la lectura de una grabación en la que transitan seis automóviles. Inicialmente los *frames* del video son redimensionados, luego se selecciona un área que contendrá solamente la carretera donde transitan los automóviles de la grabación y a la misma se le aplica un filtro con la función *bitwise_and* de la librería OpenCv. A esta sección de carretera filtrada se le denomina como **zona** y es esta la cual es ingresada a la red neuronal *"net"* que contiene el modelo "Car2.onnx", es decir el modelo Mobilenet SSD v1 ya re-entrenado en la máquina virtual de Azure, este devuelve las esquinas del recuadro que encierran la detección de un automóvil, las cuales como se mencionó con anterioridad son x1, y1, x2, y2, estos valores son guardados en una lista denominada "detect". 
+
+Luego se crea un objeto Tracker al cual a su función tracking se le envía la lista "detect", la misma retorna el diccionario autos_detectados y este se asigna a la variable "info_id".
+
+A continuación tras obtener el largo del diccionario "info_id" y la lista "detect", se realiza una validación con un *if* en el cual si el largo de la lista "detect" es menor a la de "info_id" se obtiene la diferencia de largo entre "info_id" y "len_id", y si esta diferencia es mayor a cero se infiere que alguno de los automóviles detectados por "net" ya se encuentra fuera de la zona de análisis de la grabación y por lo tanto se utilizan como apoyo la lista "sended_id" que contiene los identificadores de los automóviles cuyos centros en la coordenada "y" se enceuntran entre 310 y 330 px y "contador_out" que se utiliza como índice para ubicarse en la posición del ítem de la lista "sended_id" que se encuentra fuera de la zona.
 
 
 
