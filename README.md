@@ -600,7 +600,7 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
   <img width="507" alt="Captura de Pantalla 2022-07-22 a la(s) 17 11 06" src="https://user-images.githubusercontent.com/31348574/180579375-87e847d8-46d0-4563-a4fc-3bc78f89241e.png">
 <p/>
 
-**PASO 5:** Posteriormente se debe de crear un *"thing type, thing group y un billing group"* para identificar el recurso. Como se observa en la imagen.
+**PASO 5:** Posteriormente tras definir un nombre al objeto que en este caso se tomo como "JetsonNano-S1-1" se debe de crear un *"thing type, thing group y un billing group"* para identificar el recurso. Como se observa en la imagen.
 
 <p align="center">
   <img width="512" alt="Captura de Pantalla 2022-07-22 a la(s) 17 16 02" src="https://user-images.githubusercontent.com/31348574/180579622-cccd2e60-c1f3-40cc-b144-cb9dc9801798.png">
@@ -788,13 +788,34 @@ Dicho proceso se describe gráficamente a continuación:
 
 ### my-detection3.py
 
-Para que la tarjeta Jetson Nano realice la lectura de un video, detecté los automóviles que se mueven en el mismo, obtenga la rapidez aproximada del automóvil y envíe una imagen, su identificador y la rapidez del mismo a los servicios de AWS, son necesarias las funciones dentro del archivo my-detection3.py. Es importante resaltar que al archivo se le importa Car2.py para acceder a sus clases.
+Para que la tarjeta Jetson Nano realice la lectura de un video, detecte los automóviles que se mueven en el mismo, obtenga la rapidez aproximada del automóvil y envíe una imagen, su identificador y la rapidez del mismo a los servicios de AWS, son necesarias las funciones dentro del archivo my-detection3.py. Es importante resaltar que al archivo se le importa Car2.py para acceder a sus clases además de importar también distintas librerías que apoyan en el desarrollo del sistema.
 
-Dentro del archivo, se utiliza un *while* que realiza la lectura de una grabación en la que transitan seis automóviles. Inicialmente los *frames* del video son redimensionados, luego se selecciona un área que contendrá solamente la carretera donde transitan los automóviles de la grabación y a la misma se le aplica un filtro con la función *bitwise_and* de la librería OpenCv. A esta sección de carretera filtrada se le denomina como **zona** y es esta la cual es ingresada a la red neuronal *"net"* que contiene el modelo "Car2.onnx", es decir el modelo Mobilenet SSD v1 ya re-entrenado en la máquina virtual de Azure, este devuelve las esquinas del recuadro que encierran la detección de un automóvil, las cuales como se mencionó con anterioridad son x1, y1, x2, y2, estos valores son guardados en una lista denominada "detect". 
+Inicialmente es necesario declarar las variables globales utilizadas a lo largo del código, estas incluyen los valores obtenidos del registro de la Jetson Nano en el servicio IoT Core: *"ENPOINT"*, *"CLIENT_ID"*, *"PATH_TO_CERTIFICATE"*, *"PATH_TO PRIVATE_KEY"*, *"PATH_TO_AMAZON_ROOT_CA_1"* y *"TOPIC"*; y los valores de las llaves obtenidas en la configuración del servicio S3: *"ACCESS_KEY_ID"* Y *"SECRET_ACCESS_KEY"*.
+
+Adicional se define la variable que contendrá el modelo "Car2.onnx", es decir el modelo Mobilenet SSD v1 ya re-entrenado en la máquina virtual de Azure, la misma se nombra como "net", y el video que será analizado "cap". Finalmente dos variables auxiliares del proceso del sistema: "sended_id" y "contador_out" 
+
+Dentro del archivo, se utiliza un *while* que realiza la lectura de una grabación en la que transitan seis automóviles. Inicialmente los *frames* del video son redimensionados, luego se selecciona un área que contendrá solamente la carretera donde transitan los automóviles de la grabación y a la misma se le aplica un filtro con la función *bitwise_and* de la librería OpenCv. A esta sección de carretera filtrada se le denomina como **zona** y es esta la cual es ingresada a la red neuronal *"net"*, esta devuelve las esquinas del recuadro que encierran la detección de un automóvil, las cuales como se mencionó con anterioridad son x1, y1, x2, y2, estos valores son guardados en una lista denominada "detect". 
 
 Luego se crea un objeto Tracker al cual a su función tracking se le envía la lista "detect", la misma retorna el diccionario autos_detectados y este se asigna a la variable "info_id".
 
-A continuación tras obtener el largo del diccionario "info_id" y la lista "detect", se realiza una validación con un *if* en el cual si el largo de la lista "detect" es menor a la de "info_id" se obtiene la diferencia de largo entre "info_id" y "len_id", y si esta diferencia es mayor a cero se infiere que alguno de los automóviles detectados por "net" ya se encuentra fuera de la zona de análisis de la grabación y por lo tanto se utilizan como apoyo la lista "sended_id" que contiene los identificadores de los automóviles cuyos centros en la coordenada "y" se enceuntran entre 310 y 330 px y "contador_out" que se utiliza como índice para ubicarse en la posición del ítem de la lista "sended_id" que se encuentra fuera de la zona.
+A continuación tras obtener el largo del diccionario "info_id" y la lista "detect", se realiza una validación con un *if* en el cual si el largo de la lista "detect" es **menor** a la de "info_id" se obtiene la diferencia de largo entre "info_id" y "len_id", y si esta diferencia es mayor a cero se infiere que alguno de los automóviles detectados por "net" ya se encuentra fuera de la zona de análisis de la grabación y por lo tanto se utilizan como apoyo la lista "sended_id" que contiene los identificadores de los automóviles cuyos centros en la coordenada "y" se encuentran entre 310 y 330 px y "contador_out" que se utiliza como índice para ubicarse en la posición del ítem de la lista "sended_id" que se encuentra fuera de la zona de interés.
+
+A continuación se obtiene el identificador, los centros y las coordenadas del recuadro de detección del automóvil dentro el diccionario "info_id" que será eliminado, este se eliminará si la esquina inferior derecha de su recuadro de detección y2 supera el valor de 420 px.
+
+Al automóvil eliminado se le denomina como "auto_out" y sus atributos se almacenan en las variables "centosx", "centrosy", "tiempo_centros", "id_aux", "value_string_time", "value_savepath, value_fileimage y son enviados a la función "grafico_mvra" que funciona como un multiproceso permitiendo que comience a ejecutarse mientras se sigue corriendo el *while* que realiza la lectura del video. 
+
+Si el largo de la lista "detect" es **mayor** a la de "info_id" se continua con la detección del automóvil colocando sobre el mismo un cuadro delimitador y el identificador del mismo.  A continuación se realiza una evaluación con un *if*, en el cual si el centro en la coordenada y esta entre los valores 310 y 330 px, se agrega el identificador el automóvil en la lista ya mencionada anteriormente "sended_id", luego se recorta la imagen del automóvil haciendo uso de las coordenadas x1,y1,x2,y2 del cuadro delimitador, a continuación se registra la fecha y hora en que se realizó el recorte para complementar el valor del identificador, posteriormente se guarda la imagen en el directorio local imagen_auto y finalmente se ejecuta la función "set_aws_values" para almacenar la fecha, hora, ruta de la imagen y nombre de la imagen en las variables del objeto automóvil. 
+
+Cuando se ejecuta el multiproceso, en la función "grafico_mrva" se utiliza la variable arreglo "tiempos_aux" en la cual se almacenan los tiempos correspondientes a los centros en la coordenada "y" de los automóviles detectados. En el sistema los centros en la coordenada "y" represnetan el cambio de la posición del automóvil. Y es con estos valores y su relación con los valores del tiempo, en que se encuentran estas posiciones, que se obtienen dos modelos: Un modelo en forma de recta, y un modelo polinómico de grado dos. Para los modelos se utilizan las funciones poly1d y polyfit de la librería numpy, luego de obtener los modelos estos son derivados con la función deriv(), a continuación con una fucnión denomiada "rcuadrado" se selecciona el modelo con mejor ajuste a los datos de posición vs tiempo del automóvil que se esta analizando, a esta función se le envía los parámetros "tiempos_aux" y la lista de centros en la coordenada y.
+
+Al obtener el modelo que mejor se ajusta a los datos, la derivada del modelo es evaluada en un valor del tiempo en que se encuentre una posición "y" cercana al límite final del área establecida qeu sea mayor a 280 px. Este resultado tendrá las dimensionales en px/s por lo cual es necesario convertir este valor a una estimación cercana en km/h. Para ello se procedio a centrar la perspectiva sin comprometer las medidas de la imagen original. Como se muestra en la imagen a continuación:
+
+<p align="center">
+  <img width="542" alt="image" src="https://user-images.githubusercontent.com/109677535/181078569-00ecdca7-5c17-4ca8-97ba-df52bedc1fa9.png">
+<p/>
+
+De la imagen anterior se marca la medida que se toma de referencia, esta corresponde a un Suzuki Swift, y la medida en pixeles tomada con la aplicación Paint fue de 52 px, dando un factor de conversión 0.266, dicho valor se utiliza para convertir px/s en km/h.
+
 
 
 
