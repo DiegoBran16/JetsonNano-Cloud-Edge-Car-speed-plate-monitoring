@@ -838,3 +838,25 @@ Lo descrito anteriormente se representa gráficamente a continuación:
   <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181116082-6835fd7c-5400-4167-a36a-c52ec5e10451.png">
   <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181116880-97e2a990-d46f-4ac2-aa91-4e30c48bdba8.png">
 <p/>
+
+## Elaboración de función en servicio Lamnda para integración de servicios de AWS
+
+Para la integración de los servicios configurados de AWS, se desarrollo una función en el servicio Lambda, la cual tiene como desencadenador el servicio de AWS IoT Core, lo que indica que cada vez que se publique un mensaje MQTT en el *"TOPIC"* definido anteriormente, se activaran las funciones dentro de la función lambda denominada "MQTT-S3getCar-Rekognition-DynamoDB".
+
+Esta cuenta con una función "lambda_handler" en la cual se recibe el mensaje en fomrato json del servicio IoT Core, los valores "IDaws" y "dataspeedaws" que contienen la rapidez y el identificador concatenado del automóvil.
+
+Se ejecuta la función "Sistema_multa" la cual recibe la rapidez del automóvil y en la cual se establece una "rapidez_aceptada" y una variable denominada "multa". A continuación con un evaluador *if* se evalúa si la rapidez recibida es mayor a al valor de "rapidez_aceptada" de ser así la variable "multa" se asigna como un "sí" de lo contrario se asigna un "no", finalmente se retorna el valor de la rapidez. 
+
+A continuación se establece una variable llamada *bucket* que contiene el nombre del *bucket* configurado en el servicio S3 "carimages-traffic-jetson-nano-4gb" donde se guardan las imágenes de los automóviles detectados y se establece una variable "plateimage" que contiene el valor de "IDaws" con la terminación .jpg. Tanto la variable "plateimage" como *"bucket"* es enviada a la función "call_rekognition".
+
+En esta función inicialmente se define una variable "plate", luego con la librería boto3 se comunica con el servicio Rekognition para que el mismo obtenga el texto en la imagen del automóvil guardada en el *bucket*. Tras sustituir cualquier espacio detectado por un guión, se asignan a la variable "plate" los valores detectados y se retorna la variable "plate".
+
+A continuación se ejecuta la función "normalize" que recibe "plate" en la misma se elimina cualquier acentuación que se haya identificado en los caracteres de la detección de texto de Rekognition y se ponen en mayúsculas.
+
+Luego se ejecuta la función "Dynamo_write" que recibe los valores de "IDaws", "dataspeedaws", "plate", y "multa".
+
+
+
+
+
+
