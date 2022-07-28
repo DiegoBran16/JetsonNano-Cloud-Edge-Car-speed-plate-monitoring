@@ -920,15 +920,31 @@ Para la integración de los servicios configurados de AWS, se desarrolló una fu
 
 Esta cuenta con una función "lambda_handler" en la cual se recibe el mensaje en formato json del servicio IoT Core, los valores "IDaws" y "dataspeedaws" que contienen la rapidez y el identificador concatenado del automóvil.
 
-Se ejecuta la función "Sistema_multa" la cual recibe la rapidez del automóvil y en la cual se establece una "rapidez_aceptada" y una variable denominada "multa". A continuación con un evaluador *if* se evalúa si la rapidez recibida es mayor al valor de "rapidez_aceptada" de ser así la variable "multa" se asigna como un "sí" de lo contrario se asigna un "no", finalmente se retorna el valor de la rapidez. 
+Se ejecuta la función "Sistema_multa" la cual recibe la rapidez del automóvil y en la cual se establece una "rapidez_aceptada" y una variable denominada "multa". A continuación con un evaluador *if* se evalúa si la rapidez recibida es mayor al valor de "rapidez_aceptada" de ser así la variable "multa" se asigna como un "Sí" de lo contrario se asigna un "no", finalmente se retorna el valor de la rapidez. 
 
 A continuación se establece una variable llamada *"bucket"* que contiene el nombre del *bucket* configurado en el servicio S3 "carimages-traffic-jetson-nano-4gb" donde se guardan las imágenes de los automóviles detectados y se establece una variable "plateimage" que contiene el valor de "IDaws" con la terminación .jpg. Tanto la variable "plateimage" como *"bucket"* es enviada a la función "call_rekognition".
 
-En esta función inicialmente se define una variable "plate", luego con la librería boto3 se comunica con el servicio Rekognition para que el mismo obtenga el texto en la imagen del automóvil guardada en el *bucket*. Tras sustituir cualquier espacio detectado por un guión, se asignan a la variable "plate" los valores detectados y se retorna la variable "plate".
+En esta función inicialmente se define una variable "plate", luego con la librería boto3 se comunica con el servicio Rekognition para que el mismo obtenga el texto en la imagen del automóvil guardada en el *bucket*. Tras sustituir cualquier espacio detectado por un guion, se asignan a la variable "plate" los valores detectados y se retornar la variable "plate".
 
 A continuación se ejecuta la función "normalize" que recibe "plate" en la misma se elimina cualquier acentuación que se haya identificado en los caracteres de la detección de texto de Rekognition y se ponen en mayúsculas.
 
-Luego se ejecuta la función "Dynamo_write" que recibe los valores de "IDaws", "dataspeedaws", "plate", y "multa".
+Luego se ejecuta la función "Dynamo_write" que recibe los valores de "IDaws", "dataspeedaws", "plate", y "multa". Esta utiliza la librería boto3 para agregar a la tabla "Detected-Cars-DB" el identificador concatenado de la imagen, el *timestamp* de la detección del automóvil el cual se obtiene utilizando la función "get_timestamp", la matrícula, la rapidez, el nombre de la imagen y finalmente la indicación de la multa.
+
+En la función "get_timestamp" se recibe como parámetro el identificador del automóvil detectado concatenado, en la función se busca el guión bajo que separa la concatenación y se retorna solamente la parte del *timestamp*. 
+
+Finalmente se ejecuta la función "sendmail" cuando el valor de "multa" sea "Si", esta función recibe la matrícula, el *timestamp*, y la rapidez. Inicialmente fue neceario acceder con la librería boto3 a la tabla "CarOwners" de la cual se obtuvieron los valores del email, primer nombre y primer apellido del dueño del vehículo al cual se le aplicaría la multa, posteriormente se define una variable denominada "message" con el contenido:
+'CIUDADANO ' + str(firstname) + ' ' + str(surname) + ' USTED INCLUMPLIO CON EL LÍMITE DE RAPIDEZ ESTABLECIDO AL MANEJAR A ' + str(speed) + ' KM/H'.
+
+Luego con la librería MIMEMultipart se crea un objeto msg, al cual se le indica el correo emisor, contraseña del correo emisor, asunto del correo y se adjunta el mensaje que llevaría el correo. A continuación con la librería smtplib se crea el objeto "server" y se define el *host* y puerto que se utiliza (smtp.office365.com y 587). 
+
+Finalmente se ingresa al "server" indicando el correo emisor y la contraseña y se envía el correo electrónico al infractor del límite de rapidez.
+
+Lo descrito anteriormente se representa gráficamente a continuación:
+
+<p align="center">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181604339-7c929c2a-3ad9-4ec5-85f2-2478154cc417.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181604684-dc089baa-3da9-44ec-9650-cb3adb65e703.png">
+<p/>
 
 
 
