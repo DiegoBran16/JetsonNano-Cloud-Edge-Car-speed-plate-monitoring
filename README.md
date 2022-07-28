@@ -686,8 +686,16 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
   <img width="476" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584543-5478a2c2-cad3-4d3d-a1d3-2c7e5f57e083.png">
 <p/>
 
-**PASO 14**  
-<img width="1749" alt="Screen Shot 2022-07-27 at 19 33 02" src="https://user-images.githubusercontent.com/31348574/181401153-4f7808f9-23aa-4940-a2d9-9b353070e1cf.png">
+**PASO 14**  Posicionarse en la opción _"Things"_ que se encuentra dento de la sección _"All Devices"_ de la sección _"Manage"_ y seleccionar el objeto que se creó anteriormente 
+<p align="center">
+ <img width="469" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181401678-817eb37d-e863-442a-b426-922fe3fa441d.png">
+<p/>
+
+**PASO 15** Dirigirse a la sección _"Device Shadows"_ y seleccionar _"Create Shadow"_
+<p align="center">
+  <img width="749" alt="Screen Shot 2022-07-27 at 19 33 02" src="https://user-images.githubusercontent.com/31348574/181401153-4f7808f9-23aa-4940-a2d9-9b353070e1cf.png">
+<p/>
+
 
 ## Configuración de servicios en AWS
 
