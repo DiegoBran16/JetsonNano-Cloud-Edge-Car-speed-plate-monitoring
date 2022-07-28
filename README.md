@@ -756,6 +756,32 @@ Este servico se utilizará para crear un grupo el cual poseerá permisos para co
 
 
 
+### Configuración de Dynamo DB
+
+En la elaboración de este proyecto se configuraron dos tablas. Estas se describen a continuación:
+
+-Detected_Cars_DB: En esta tabla se almacena el registro de automoviles. Incluye los campos _ID_, _timestamp_, _imageName_, _Multa_, _Plate_ y _speed_
+-CarOwners: En esta tabla se almacenan los datos de los usuarios que poseen veiculos. Se incluyen los campos _Matricula_, _DriversLicence_, _Email_, _FirstName_, FirstSurname_, SecondName_ y _SecondSurname_
+
+#### Configuración de la tabla _Detected_Cars_DB_ 
+
+**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_ y hacer click en _"Create Table"_ 
+img width="600" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
+
+**PASO 2:** Se colocá un nombre en la la tabla, el parametro para las llaves de partición y de ordenamiento y por ultimo se debe hacer click en _"Create Table"
+
+<img width="669" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392693-81388abf-5b36-421c-ae57-ee19393e4d80.png">
+
+
+#### Configuración de la tabla _CarOwners_
+
+**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_ y hacer click en _"Create Table"_ 
+img width="600" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
+
+**PASO 2:** Se colocá un nombre en la la tabla, el parametro para la llave de partición (Para esta tabla no es necesario crear una llave de ordenamiento) y por ultimo se debe hacer click en _"Create Table"
+
+<img width="896" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181393787-ebb50625-50d2-4502-9eb4-7796b10bc68a.png">
+
 
 ## Elaboración de archivos Car2.py y my-detection3.py
 
