@@ -765,7 +765,7 @@ En la elaboración de este proyecto se configuraron dos tablas. Estas se describ
 
 #### Configuración de la tabla _Detected_Cars_DB_ 
 
-**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_ y hacer click en _"Create Table"_ 
+**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_, ubicarse en _"Tables"_ y hacer click en _"Create Table"_ 
 img width="600" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
 
 **PASO 2:** Se colocá un nombre en la la tabla, el parametro para las llaves de partición y de ordenamiento y por ultimo se debe hacer click en _"Create Table"
@@ -775,12 +775,31 @@ img width="600" alt="imagen" src="https://user-images.githubusercontent.com/3134
 
 #### Configuración de la tabla _CarOwners_
 
-**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_ y hacer click en _"Create Table"_ 
-img width="600" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
+**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_,ubicarse en "Tables"_y hacer click en _"Create Table"_ 
+ 
+<img width="600" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
 
 **PASO 2:** Se colocá un nombre en la la tabla, el parametro para la llave de partición (Para esta tabla no es necesario crear una llave de ordenamiento) y por ultimo se debe hacer click en _"Create Table"
 
 <img width="896" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181393787-ebb50625-50d2-4502-9eb4-7796b10bc68a.png">
+
+
+#### Configuración de la función lambda
+
+**PASO 1:** Dirigirse al servició _"AWS Lambda"_, ubicarse en _"Functions"_ y hacer click en "Create Function"
+<p align="center">
+  <img width="729" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181394607-69398263-7179-4e32-bc51-20d51b69bec6.png">
+<p/>
+
+**PASO 2:** Se selecióna la opción _"Author from scratch"_ para crear la función con un pequeño código de ejemplo, seguidamente se coloca el nombre identificador de la función. En _"Runtime"_ se seleccioná el lenguaje en el que se programará la función, en este caso fue Python3.9. En_"Architecture"_ se debe marcar la arquitectura de base para la ejecución de la función. En este caso se marcó la opción x86_64. En "Execution role" se inidca el rol de ejecución de la función en caso de ya poseer una politica creada, en caso de no poseerla se puede crear una politica nueva o crear la función con una politica basica. En este caso se marcó la opción _"Create a new role with basic Lambda permissions"_. Por ultimo se debe hacer click en "Create Function"
+
+<p align="center">
+ <img width="705" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181396183-70c36825-fe80-4303-89da-612761ab5b3d.png">
+<p/>
+
+**PASO 3:** Se debe de hacer click en el nombre de la función y posteriormente seleccionar la opción _"Add Triger"_ 
+
+<img width="1060" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181397483-e9d1e647-7cdc-4270-9fbc-0b93c74638eb.png">
 
 
 ## Elaboración de archivos Car2.py y my-detection3.py
