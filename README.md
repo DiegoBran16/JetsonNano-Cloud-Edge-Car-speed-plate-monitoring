@@ -943,7 +943,7 @@ Lo descrito anteriormente se representa gráficamente a continuación:
 
 <p align="center">
   <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181604339-7c929c2a-3ad9-4ec5-85f2-2478154cc417.png">
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181604684-dc089baa-3da9-44ec-9650-cb3adb65e703.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/109677535/181604847-83a55a5c-0990-49f6-993c-49044eb3040e.png">
 <p/>
 
 
