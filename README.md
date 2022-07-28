@@ -696,6 +696,17 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
   <img width="749" alt="Screen Shot 2022-07-27 at 19 33 02" src="https://user-images.githubusercontent.com/31348574/181401153-4f7808f9-23aa-4940-a2d9-9b353070e1cf.png">
 <p/>
 
+**PASO 16** Seleccionar la opción _"Named Shadow"_, colocar un identificador para el tema MQTT y hacer click en_"Create"_, posteriormente se observara el prefijo del tema.
+
+<p align="center">  
+ 
+  <img width="623" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181402395-5cc8d999-3e34-4894-be8d-776576026c34.png">
+  
+  <img width="659" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181402815-a34956e3-13a6-41ef-a0f0-ae706ecc156e.png">
+
+  
+<p/>
+
 
 ## Configuración de servicios en AWS
 
