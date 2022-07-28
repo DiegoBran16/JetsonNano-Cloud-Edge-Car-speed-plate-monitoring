@@ -686,6 +686,8 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
   <img width="476" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584543-5478a2c2-cad3-4d3d-a1d3-2c7e5f57e083.png">
 <p/>
 
+**PASO 14**  
+<img width="1749" alt="Screen Shot 2022-07-27 at 19 33 02" src="https://user-images.githubusercontent.com/31348574/181401153-4f7808f9-23aa-4940-a2d9-9b353070e1cf.png">
 
 ## Configuración de servicios en AWS
 
@@ -800,6 +802,15 @@ img width="600" alt="imagen" src="https://user-images.githubusercontent.com/3134
 **PASO 3:** Se debe de hacer click en el nombre de la función y posteriormente seleccionar la opción _"Add Triger"_ 
 
 <img width="1060" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181397483-e9d1e647-7cdc-4270-9fbc-0b93c74638eb.png">
+
+**PASO 4:** En _"Trigger configuration"_ debemos seleccionar IoT Core como fuente del desencadenador. 
+
+<img width="1510" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181399807-4aff76ec-36c6-4584-bf0f-bd4aeb3023e1.png">
+
+
+**PASO 5:**  En _"IoT type"_ se selecciona_"Custom IoT rule"_, en _"Rule"_ se marca la opción _"Create a new rule"_, se coloca el nombre de la regla, la descripcion y en _"Rule query statement"_ se debe declarar que en cada publicación en el tema creado en el paso # se invoque a la función. 
+
+<img width="831" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181399876-cc9a248a-8cde-4691-8570-f6941073367b.png">
 
 
 ## Elaboración de archivos Car2.py y my-detection3.py
