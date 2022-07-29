@@ -852,7 +852,8 @@ Se crearón las siguientes politicas y roles:
 **PASO 3:** Se abrirá la configuración del rol y se debe hacer click en _"Add Permissions"_ y posteriormente en _"Create inline policy"_
 
 <p align="center">
-  <img width="1773" alt="Screen Shot 2022-07-28 at 22 56 18" src="https://user-images.githubusercontent.com/31348574/181686145-f2a3db43-0797-48ae-8fd0-1c2c023abf9a.png">
+  <img width="1763" alt="Screen Shot 2022-07-28 at 23 11 40" src="https://user-images.githubusercontent.com/31348574/181687253-03a19462-1712-471c-9ae2-d28b48e6862d.png">
+
 <p/>
 
 
