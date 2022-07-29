@@ -837,28 +837,6 @@ Se crearón las siguientes politicas y roles:
 
 #### Rol de lambda
 
-**PASO 1:** Dirigirse al servicio _"IAM"_, dentro de la sección _"Access Management"_ seleccionar _"Roles"_ y hacer click en _"Create Role"_
-<p align="center">
- <img width="1721" alt="Screen Shot 2022-07-28 at 18 50 16" src="https://user-images.githubusercontent.com/31348574/181660471-50bc7720-2798-4f80-aca0-521346b76603.png">
-<p/>
-
-**PASO 2:** EN _"Trusted Entity Type"_ seleccionar _"AWS Service"_, en _"Use Case"_ seleccionar _"Lambda"_ y hacer click en _"Next"_
-
-<p align="center">
-  <img width="1704" alt="Screen Shot 2022-07-28 at 18 48 31" src="https://user-images.githubusercontent.com/31348574/181660887-bb473fd7-323f-408d-9e51-832a0101a1e3.png">
-<p/>
-
-**PASO 3:** Hacer click en _"Create Policy"_
-<p align="center">
- <img width="1692" alt="Screen Shot 2022-07-28 at 18 56 51" src="https://user-images.githubusercontent.com/31348574/181661127-c12a792d-170c-44ac-b94f-4641886e3277.png">
-<p/>
-
-**PASO 4:** Hacer click en _"JSON"_
-<p align="center">
-  <img width="1272" alt="Screen Shot 2022-07-28 at 18 59 53" src="https://user-images.githubusercontent.com/31348574/181661273-7abc2744-ddb9-44a2-ae3c-6c2a7226860f.png">
-<p/>
-
-
 **PASO 1:** Dirigirse a la función lambda creada anteriormente y hacer click en el nombre de la función
 
 <p align="center">
@@ -866,6 +844,119 @@ Se crearón las siguientes politicas y roles:
 <p/>
 
 **PASO 2:** Posteriormente colocarse en la pestaña _"configuration"_, dirigirse a _"Permissions"_ y hacer click en la politica predeterminada 
+
+<p align="center">
+  <img width="1748" alt="Screen Shot 2022-07-28 at 18 17 15" src="https://user-images.githubusercontent.com/31348574/181685772-fd4397c1-46af-43c3-9d52-b61d0155e072.png">
+<p/>
+
+**PASO 3:** Se abrirá la configuración del rol y se debe hacer click en _"Add Permissions"_ y posteriormente en _"Create inline policy"_
+
+<p align="center">
+  <img width="1773" alt="Screen Shot 2022-07-28 at 22 56 18" src="https://user-images.githubusercontent.com/31348574/181686145-f2a3db43-0797-48ae-8fd0-1c2c023abf9a.png">
+<p/>
+
+
+**PASO 4:** Hacer click en _"JSON"_
+<p align="center">
+  <img width="1272" alt="Screen Shot 2022-07-28 at 18 59 53" src="https://user-images.githubusercontent.com/31348574/181661273-7abc2744-ddb9-44a2-ae3c-6c2a7226860f.png">
+<p/>
+
+
+**PASO 5 :** En la política del rol se deben colocar los permisos necesarios para que la función pueda apoyarse de los serviciós _Rekognition, DynamoDB, y S3_. Se autorizarón todas las acciones para el servicio _Rekognition_, permisos para leer y escribir en la tabla _"Detected_Cars_DB"_, permisos de lectura en la tabla _"CarOwners"_ y permisos para colocar y recuperar objetos del _bucket_ de S3
+
+```json 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:us-east-2:556216965853:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "rekognition:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-2:556216965853:log-group:/aws/lambda/MQTT-S3getCar-Recognition-Dynamodb:*"
+            ]
+        },
+        {
+            "Sid": "ListAndDescribe",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:List*",
+                "dynamodb:DescribeReservedCapacity*",
+                "dynamodb:DescribeLimits",
+                "dynamodb:DescribeTimeToLive"
+            ],
+            "Resource": "arn:aws:dynamodb:us-east-2:556216965853:table/Detected-Cars-DB"
+        },
+        {
+            "Sid": "SpecificTable",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:BatchGet*",
+                "dynamodb:DescribeStream",
+                "dynamodb:DescribeTable",
+                "dynamodb:Get*",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchWrite*",
+                "dynamodb:CreateTable",
+                "dynamodb:Update*",
+                "dynamodb:PutItem"
+            ],
+            "Resource": "arn:aws:dynamodb:us-east-2:556216965853:table/Detected-Cars-DB"
+        },
+        {
+            "Sid": "SpecificTableRead",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:BatchGet*",
+                "dynamodb:DescribeStream",
+                "dynamodb:DescribeTable",
+                "dynamodb:Get*",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchWrite*"
+            ],
+            "Resource": "arn:aws:dynamodb:us-east-2:556216965853:table/CarOwners"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:PutObject",
+                "s3:Get*",
+                "s3:List*",
+                "s3-object-lambda:Get*",
+                "s3-object-lambda:List*"
+            ],
+            "Resource": "arn:aws:s3:::carimages-traffic-jetson-nano-4gb"
+        }
+    ]
+} 
+
+```
+
+
+
+**PASO 6:** Colocar un nombre de identificación para la política y hacer click en _"Create Policy"_, posteriormente se obserbará la política creada en el rol. 
+<p align="center">
+  <img width="1327" alt="Screen Shot 2022-07-28 at 23 05 05" src="https://user-images.githubusercontent.com/31348574/181686794-678503a7-4e59-49b3-bae8-f8597d42813f.png">
+  <img width="1457" alt="Screen Shot 2022-07-28 at 23 07 25" src="https://user-images.githubusercontent.com/31348574/181686956-6df22fc7-106d-4a95-8ea3-e356d666cd0c.png">
+<p/>
+
 
 
 ## Elaboración de archivos Car2.py y my-detection3.py
