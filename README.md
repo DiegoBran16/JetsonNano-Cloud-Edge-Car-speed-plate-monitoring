@@ -650,53 +650,19 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
   <img width="525" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
 <p/>
 
-**PASO 13:** Ya que el objeto fue creado, es necesario modificar la política de los certificados para garantizar que solamente el dispositivo con estos certificados pueda utilizar los recursos. Para ello dirigirse a _"all devices"_, seleccionar _"Things"_, y copiar el ARN del objeto.
-
-<p align="center">
-  <img width="585" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584052-c71eeaca-afaa-4e98-8f9a-27be1629ece4.png">
-<p/>
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.1** Dirigirse a la sección _"security"_, seleccionar _"Policy"_ y hacer click en la política. 
-<p align="center">
-  <img width="585" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584178-ad2dcee5-298d-4c56-b7ae-95304cdd5bd9.png">
-<p/>
-
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.2** Seleccionar la versión activa de la política
-
-<p align="center">
-  <img width="574" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584275-57ced402-4cf5-48ed-823e-80a48f7dca25.png">
-<p/>
-
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.3** Colocar la vista de la política en formato JSON y editar el parámetro _"Resource"_  y colocamos el ARN que se copió en el paso 13.
-
-
-<p align="center">
-  <img width="507" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584356-e4809230-8935-4dab-a67e-1b3df84fc14f.png">
-<p/>
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **PASO 13.4** Posteriormente se generará una nueva versión de la política, se debe seleccionar esta última versión y hacer click en _"set as active"_ 
-
-<p align="center">
-  <img width="476" alt="imagen" src="https://user-images.githubusercontent.com/31348574/180584543-5478a2c2-cad3-4d3d-a1d3-2c7e5f57e083.png">
-<p/>
-
-**PASO 14**  Posicionarse en la opción _"Things"_ que se encuentra dento de la sección _"All Devices"_ de la sección _"Manage"_ y seleccionar el objeto que se creó anteriormente 
+**PASO 13**  Posicionarse en la opción _"Things"_ que se encuentra dento de la sección _"All Devices"_ de la sección _"Manage"_ y seleccionar el objeto que se creó anteriormente 
 <p align="center">
  <img width="469" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181401678-817eb37d-e863-442a-b426-922fe3fa441d.png">
 <p/>
 
-**PASO 15** Dirigirse a la sección _"Device Shadows"_ y seleccionar _"Create Shadow"_
+**PASO 14** Dirigirse a la sección _"Device Shadows"_ y seleccionar _"Create Shadow"_
 <p align="center">
   <img width="749" alt="Screen Shot 2022-07-27 at 19 33 02" src="https://user-images.githubusercontent.com/31348574/181401153-4f7808f9-23aa-4940-a2d9-9b353070e1cf.png">
 <p/>
 
-**PASO 16** Seleccionar la opción _"Named Shadow"_, colocar un identificador para el tema MQTT y hacer click en_"Create"_, posteriormente se observara el prefijo del tema.
+**PASO 15** Seleccionar la opción _"Named Shadow"_, colocar un identificador para el tema MQTT y hacer click en_"Create"_, posteriormente se observara el prefijo del tema.
 
 <p align="center">  
  
@@ -716,6 +682,7 @@ Los servicios configurados a continuación son los siguientes:
 - S3
 - DynamoDB
 - Lambda
+- Elaboración de Politicas y roles
 
 ### Configuración de IAM 
 
@@ -830,6 +797,50 @@ img width="600" alt="imagen" src="https://user-images.githubusercontent.com/3134
 **PASO 5:**  En _"IoT type"_ se selecciona_"Custom IoT rule"_, en _"Rule"_ se marca la opción _"Create a new rule"_, se coloca el nombre de la regla, la descripcion y en _"Rule query statement"_ se debe declarar que en cada publicación en el tema creado en el paso # se invoque a la función. 
 
 <img width="831" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181399876-cc9a248a-8cde-4691-8570-f6941073367b.png">
+
+
+### Elaboración de Politicas y Roles 
+
+Se crearon las políticas para cada uno de los servicios asignando unicamente los permisos necesarios para la interacción entre estos. 
+
+Se crearón las siguientes politicas y roles:
+- Política del grupo JetsonNano-car-traffic-accounts
+- Política del Bucket de S3
+- Rol de lambda 
+
+#### Rol de lambda
+
+**PASO 1:** Dirigirse al servicio _"IAM"_, dentro de la sección _"Access Management"_ seleccionar _"Roles"_ y hacer click en _"Create Role"_
+<p align="center">
+ <img width="1721" alt="Screen Shot 2022-07-28 at 18 50 16" src="https://user-images.githubusercontent.com/31348574/181660471-50bc7720-2798-4f80-aca0-521346b76603.png">
+<p/>
+
+**PASO 2:** EN _"Trusted Entity Type"_ seleccionar _"AWS Service"_, en _"Use Case"_ seleccionar _"Lambda"_ y hacer click en _"Next"_
+
+<p align="center">
+  <img width="1704" alt="Screen Shot 2022-07-28 at 18 48 31" src="https://user-images.githubusercontent.com/31348574/181660887-bb473fd7-323f-408d-9e51-832a0101a1e3.png">
+<p/>
+
+**PASO 3:** Hacer click en _"Create Policy"_
+<p align="center">
+ <img width="1692" alt="Screen Shot 2022-07-28 at 18 56 51" src="https://user-images.githubusercontent.com/31348574/181661127-c12a792d-170c-44ac-b94f-4641886e3277.png">
+<p/>
+
+**PASO 4:** Hacer click en _"JSON"_
+<p align="center">
+  <img width="1272" alt="Screen Shot 2022-07-28 at 18 59 53" src="https://user-images.githubusercontent.com/31348574/181661273-7abc2744-ddb9-44a2-ae3c-6c2a7226860f.png">
+<p/>
+
+
+**PASO 1:** Dirigirse a la función lambda creada anteriormente y hacer click en el nombre de la función
+
+<p align="center">
+ <img width="1723" alt="Screen Shot 2022-07-28 at 18 15 22" src="https://user-images.githubusercontent.com/31348574/181657690-117858ed-ee29-454a-a950-71ac31ab0f5b.png">
+<p/>
+
+
+
+**PASO 2:** Posteriormente colocarse en la pestaña _"configuration"_, dirigirse a _"Permissions"_ y hacer click en la politica predeterminada 
 
 
 ## Elaboración de archivos Car2.py y my-detection3.py
