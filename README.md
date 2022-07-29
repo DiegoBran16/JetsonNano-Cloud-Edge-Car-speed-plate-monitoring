@@ -835,14 +835,76 @@ Se crearón las siguientes politicas y roles:
 - Política del Bucket de S3
 - Rol de Lambda 
 
-### Política del Bucket de S3 
+#### Política del grupo JetsonNano-car-traffic-accounts
+**PASO 1:** Dirigirse al servicio IAM, ubicarse en _"Groups"_ y selecconar el grupo creado anteriormente
+
+<p align="center">
+  <img width="1749" alt="Screen Shot 2022-07-29 at 08 19 09" src="https://user-images.githubusercontent.com/31348574/181780867-67a80bda-1dd6-4b3e-9f8b-cb35ccba0f3a.png">
+<p/>
+
+**PASO 2:**  Ubicarse en la pestaña _"Permissions"_, desplegar las opciónes disponibles de _"Attach Permissions"_ y seleccionar la opción _"Attach policies"_
+
+<p align="center">
+  <img width="1466" alt="Screen Shot 2022-07-29 at 08 41 01" src="https://user-images.githubusercontent.com/31348574/181784737-84ed4414-1092-47ca-b25f-0943780059c7.png">
+<p/>
+
+**PASO 3:** Seguidamente hacer click sobre "Create Policy" y se abriara una nueva ventana.
+
+<p align="center">
+  <img width="1751" alt="Screen Shot 2022-07-29 at 08 41 22" src="https://user-images.githubusercontent.com/31348574/181785139-e8ed480a-3d92-458a-a888-302bb0b20c8d.png">
+<p/>
+
+**PASO 4:** Seleccionar la pestaña _"JSON"_, escribir la siguiente política y hacer click en _"Next:Tags"_. 
+
+Esta política otorga los permisos necesarios para colocar objetos en el bucket. Esto permite que el usuario utilizado en el codigo de borde coloque las imagenes de los automoviles en el bucket. 
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::carimages-trafic-jetson-nano-4gb"
+        }
+    ]
+}
+
+
+```
+
+**PASO 5:** En _"Add Tags"_ hacer click en _"Next:Review"_
+<p align="center">
+  <img width="1386" alt="Screen Shot 2022-07-29 at 09 02 26" src="https://user-images.githubusercontent.com/31348574/181788567-6528db45-17ac-4beb-ac8d-38a430cb8289.png">
+<p/>
+
+**PASO 6:** Colocar un nombre para la política y hacer click en "Create Policy"
+
+<p align="center">
+  <img width="1348" alt="Screen Shot 2022-07-29 at 09 02 47" src="https://user-images.githubusercontent.com/31348574/181789283-8c266762-ba86-4cab-9211-c01d6396ad43.png">
+<p/>
+
+**PASO 7:** Regresar a la pestaña de _"Attach permission policies to JetsonNano-car-traffic-accounts"_, seleccionar la política creada y hacer click en "Add Permissions"
+
+
+<p align="center">
+  <img width="1719" alt="Screen Shot 2022-07-29 at 09 11 12" src="https://user-images.githubusercontent.com/31348574/181790388-46011d26-dac1-4c7d-9a9c-199b7467b20e.png">
+<p/>
+
+**PASO 8:** Posteriormente se observará la politica asignada en el grupo.
+<p align="center">
+  <img width="1456" alt="Screen Shot 2022-07-29 at 09 13 22" src="https://user-images.githubusercontent.com/31348574/181790649-8943e428-2432-4c85-8333-c7e773767732.png">
+
+<p/>
+
+#### Política del Bucket de S3 
 **PASO 1:** Dirigirse al servicio S3 y en la sección _"Buckets"_ hacer click sobre el bucket que se creó anteriormente
 
 <p align="center">
   <img width="1736" alt="Screen Shot 2022-07-29 at 08 03 29" src="https://user-images.githubusercontent.com/31348574/181777503-7111d6c7-14d2-4640-9714-6fde2eabb177.png">
 <p/>
 
-**PASO 2:** Ubicarse en la pestaña _"Permissions"_, dirigirse a _"Bucket Policy"_ y hacer click en edit
+**PASO 2:** Ubicarse en la pestaña _"Permissions"_, dirigirse a _"Bucket Policy"_ hacer click en edit
 
 <p align="center">
   <img width="1792" alt="Screen Shot 2022-07-29 at 08 02 51" src="https://user-images.githubusercontent.com/31348574/181778062-e4dcf1d1-20fd-4302-aba3-2103eebc9012.png">
