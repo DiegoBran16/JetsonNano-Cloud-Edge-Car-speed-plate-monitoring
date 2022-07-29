@@ -668,9 +668,7 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
  
   <img width="623" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181402395-5cc8d999-3e34-4894-be8d-776576026c34.png">
   
-  <img width="659" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181402815-a34956e3-13a6-41ef-a0f0-ae706ecc156e.png">
-
-  
+  <img width="659" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181402815-a34956e3-13a6-41ef-a0f0-ae706ecc156e.png">  
 <p/>
 
 
@@ -690,123 +688,151 @@ Este servico se utilizará para crear un grupo el cual poseerá permisos para co
 
 
 **PASO 1:** En el servicio IAM colocarse en _"User Groups"_, y hacer click en _"Create group"_ y se selecciona _"Create Group"_
-<img width="606" alt="Screen Shot 2022-07-25 at 19 28 23" src="https://user-images.githubusercontent.com/31348574/180902888-31f572cb-aaa7-4450-8ab5-9540f420ca9c.png">
+
+<p align="center">
+  <img width="606" alt="Screen Shot 2022-07-25 at 19 28 23" src="https://user-images.githubusercontent.com/31348574/180902888-31f572cb-aaa7-4450-8ab5-9540f420ca9c.png">
+<p/>
 
 **ACLARACIÓN:** De momento no se creará ninguna política, pues es neceario el ARN de S3.
 
 **PASO 2:** En la sección _"Users"_ seleccionar _"Add Users"_
 
-
-
-<img width="648" alt="Screen Shot 2022-07-25 at 19 45 14" src="https://user-images.githubusercontent.com/31348574/180904602-a2a15998-2086-4275-af9e-d876a5e0180b.png">
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 19 45 14" src="https://user-images.githubusercontent.com/31348574/180904602-a2a15998-2086-4275-af9e-d876a5e0180b.png">
+<p/>
 
 
 **PASO 3:** Se define un nombre de usuario y se marca el _checkbox_ _"Access Key-Programmatic Access"_ ya que se colocara en el codígo de la Jetson Nano y hacer click en _"Next:Permissions"_ 
 
-
-
-<img width="660" alt="Screen Shot 2022-07-25 at 19 47 59" src="https://user-images.githubusercontent.com/31348574/180904898-d90ba4e4-70a4-4258-9f80-f1ae6198a716.png">
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 19 47 59" src="https://user-images.githubusercontent.com/31348574/180904898-d90ba4e4-70a4-4258-9f80-f1ae6198a716.png">
+<p/>
 
 
 **PASO 4:** En _"Set permissions"_ seleccionamos _"Add user to group"_, seleccionar el grupo que se creó en el paso 3 y hacer click en _"Next"_ 
 
-<img width="664" alt="Screen Shot 2022-07-25 at 19 46 21" src="https://user-images.githubusercontent.com/31348574/180905978-6aae15be-f227-4299-a7d7-afad40f8f9f6.png">
-
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 19 46 21" src="https://user-images.githubusercontent.com/31348574/180905978-6aae15be-f227-4299-a7d7-afad40f8f9f6.png">
+<p/>
 
 **PASO 5:** En  _"Add tags"_ seleccionamos _"Next:Review"_ 
 
-<img width="666" alt="Screen Shot 2022-07-25 at 19 54 48" src="https://user-images.githubusercontent.com/31348574/180905639-dde520db-695f-45f3-8ede-5f9d6e48c508.png">
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 19 54 48" src="https://user-images.githubusercontent.com/31348574/180905639-dde520db-695f-45f3-8ede-5f9d6e48c508.png">
+<p/>
 
+**PASO 6:** A continuación se mostrará un resumen y se debe hacer click en "Create User", posteriormente saldrá un mensaje de éxito y los detalles del usuario. En este momento se debe descargar el .CSV ya que es el único momento en el cual se pueden descargar las llaves de acceso, después de esta pantalla no es posible observar la llave de acceso privada. Después de descargar el .CSV hacer click en _"Close"_
 
-**PASO 6:** A continuación se mostrara un resumen y se debe hacer click en "Create User", posteriormente saldrá un mensaje de éxito y los detalles del usuario. EN este momento se debe descargar el .CSV ya que es el único momento en el cual se pueden descargar las llaves de acceso, despues de esta pantalla no es posible observar la llave de acceso privada. Despues de descargar el .CSV hacer click en _"Close"_
-
-
-<img width="651" alt="Screen Shot 2022-07-25 at 20 05 49" src="https://user-images.githubusercontent.com/31348574/180906947-c60ad235-a72b-4d13-b83f-1ff9f3ac8cb3.png">
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 20 05 49" src="https://user-images.githubusercontent.com/31348574/180906947-c60ad235-a72b-4d13-b83f-1ff9f3ac8cb3.png">
+<p/>
 
 
 ### Configuración del Bucket de S3 
 
 **PASO 1:** Dirigirse a el servicio Amazon Simple Storage Service (S3), en la sección _"Buckets"_ seleccionar la opción _"Create Bucket"_
 
-<img width="937" alt="Screen Shot 2022-07-25 at 20 10 52" src="https://user-images.githubusercontent.com/31348574/180907730-39a2f2ea-7e9a-44ee-ae2e-995e6fcb6183.png">
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 20 10 52" src="https://user-images.githubusercontent.com/31348574/180907730-39a2f2ea-7e9a-44ee-ae2e-995e6fcb6183.png">
+<p/>
 
 **PASO 2:** Se coloca un identificador para el _"Bucket"_, la región en la que se creará el _"Bucket"_ y en _"Obejcts Ownership"_ marcar _"ACLs disabled (recomended)"_. 
 
-<img width="855" alt="Screen Shot 2022-07-25 at 20 14 47" src="https://user-images.githubusercontent.com/31348574/180908414-9d95c150-f435-4157-8459-326bc2562af2.png">
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 20 14 47" src="https://user-images.githubusercontent.com/31348574/180908414-9d95c150-f435-4157-8459-326bc2562af2.png">
+<p/>
 
 **PASO 3:** Seleccionar _"Block all public access"_
 
-<img width="645" alt="Screen Shot 2022-07-25 at 20 20 54" src="https://user-images.githubusercontent.com/31348574/180908673-ede6d3d9-e601-4a48-b1cf-8191067bca50.png">
-
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 20 20 54" src="https://user-images.githubusercontent.com/31348574/180908673-ede6d3d9-e601-4a48-b1cf-8191067bca50.png">
+<p/>
+  
 **PASO 4:** En _"Bucket Versioning"_ y _"Default Encryption"_ se dejan los valores predeterminados y se da click en _"Create bucket"_
 
-<img width="660" alt="Screen Shot 2022-07-25 at 20 21 37" src="https://user-images.githubusercontent.com/31348574/180908749-0de7d9f3-e9fa-4d94-84eb-5bb0cf0ef02e.png">
-
-
+<p align="center">
+  <img width="500" alt="Screen Shot 2022-07-25 at 20 21 37" src="https://user-images.githubusercontent.com/31348574/180908749-0de7d9f3-e9fa-4d94-84eb-5bb0cf0ef02e.png">
+<p/>
 
 ### Configuración de Dynamo DB
 
 En la elaboración de este proyecto se configuraron dos tablas. Estas se describen a continuación:
 
--Detected_Cars_DB: En esta tabla se almacena el registro de automoviles. Incluye los campos _ID_, _timestamp_, _imageName_, _Multa_, _Plate_ y _speed_
--CarOwners: En esta tabla se almacenan los datos de los usuarios que poseen veiculos. Se incluyen los campos _Matricula_, _DriversLicence_, _Email_, _FirstName_, FirstSurname_, SecondName_ y _SecondSurname_
+- Detected_Cars_DB: En esta tabla se almacena el registro de automóviles. Incluye los campos _ID_, _timestamp_, _imageName_, _Multa_, _Plate_ y _speed_
+- CarOwners: En esta tabla se almacenan los datos de los usuarios que poseen veiculos. Se incluyen los campos _Matricula_, _DriversLicence_, _Email_, _FirstName_, _FirstSurname_, _SecondName_ y _SecondSurname_
+
 
 #### Configuración de la tabla _Detected_Cars_DB_ 
 
-**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_, ubicarse en _"Tables"_ y hacer click en _"Create Table"_ 
-img width="600" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
+**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_, ubicarse en _"Tables"_ y hacer click en _"Create Table"_
 
-**PASO 2:** Se colocá un nombre en la la tabla, el parametro para las llaves de partición y de ordenamiento y por ultimo se debe hacer click en _"Create Table"
+<p align="center">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
+<p/>
 
-<img width="669" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392693-81388abf-5b36-421c-ae57-ee19393e4d80.png">
+**PASO 2:** Se colocá un nombre en la tabla, el parámetro para las llaves de partición y de ordenamiento y por último se debe hacer click en _"Create Table"_
 
+<p align="center">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392693-81388abf-5b36-421c-ae57-ee19393e4d80.png">
+<p/>
 
 #### Configuración de la tabla _CarOwners_
 
-**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_,ubicarse en "Tables"_y hacer click en _"Create Table"_ 
+**PASO 1:** Dirigirse a el servicio _DynamoDB_ en la consola de _AWS_, ubicarse en _"Tables"_ y hacer click en _"Create Table"_ 
  
-<img width="600" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
+<p align="center">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181392018-db5d3b47-973f-4ddd-ba6f-88e2a9338e6a.png">
+<p/>
+  
+**PASO 2:** Se colocá un nombre en la tabla, el parámetro para la llave de partición (Para esta tabla no es necesario crear una llave de ordenamiento) y por último se debe hacer click en _"Create Table"_
 
-**PASO 2:** Se colocá un nombre en la la tabla, el parametro para la llave de partición (Para esta tabla no es necesario crear una llave de ordenamiento) y por ultimo se debe hacer click en _"Create Table"
-
-<img width="896" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181393787-ebb50625-50d2-4502-9eb4-7796b10bc68a.png">
-
+<p align="center">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181393787-ebb50625-50d2-4502-9eb4-7796b10bc68a.png">
+<p/>
 
 #### Configuración de la función lambda
 
-**PASO 1:** Dirigirse al servició _"AWS Lambda"_, ubicarse en _"Functions"_ y hacer click en "Create Function"
+**PASO 1:** Dirigirse al servicio _"AWS Lambda"_, ubicarse en _"Functions"_ y hacer click en _"Create Function"_
+
 <p align="center">
-  <img width="729" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181394607-69398263-7179-4e32-bc51-20d51b69bec6.png">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181394607-69398263-7179-4e32-bc51-20d51b69bec6.png">
 <p/>
 
-**PASO 2:** Se selecióna la opción _"Author from scratch"_ para crear la función con un pequeño código de ejemplo, seguidamente se coloca el nombre identificador de la función. En _"Runtime"_ se seleccioná el lenguaje en el que se programará la función, en este caso fue Python3.9. En_"Architecture"_ se debe marcar la arquitectura de base para la ejecución de la función. En este caso se marcó la opción x86_64. En "Execution role" se inidca el rol de ejecución de la función en caso de ya poseer una politica creada, en caso de no poseerla se puede crear una politica nueva o crear la función con una politica basica. En este caso se marcó la opción _"Create a new role with basic Lambda permissions"_. Por ultimo se debe hacer click en "Create Function"
+**PASO 2:** Se seleciona la opción _"Author from scratch"_ para crear la función con un pequeño código de ejemplo, seguidamente se coloca el nombre identificador de la función. En _"Runtime"_ se selecciona el lenguaje en el que se programará la función, en este caso fue Python3.9. En _"Architecture"_ se debe marcar la arquitectura de base para la ejecución de la función. En este caso se marcó la opción x86_64. En _"Execution role"_ se inidca el rol de ejecución de la función en caso de ya poseer una política creada, en caso de no poseerla se puede crear una política nueva o crear la función con una política básica. En este caso se marcó la opción _"Create a new role with basic Lambda permissions"_. Por último se debe hacer click en _"Create Function"_
 
 <p align="center">
- <img width="705" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181396183-70c36825-fe80-4303-89da-612761ab5b3d.png">
+ <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181396183-70c36825-fe80-4303-89da-612761ab5b3d.png">
 <p/>
 
 **PASO 3:** Se debe de hacer click en el nombre de la función y posteriormente seleccionar la opción _"Add Triger"_ 
 
-<img width="1060" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181397483-e9d1e647-7cdc-4270-9fbc-0b93c74638eb.png">
+<p align="center">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181397483-e9d1e647-7cdc-4270-9fbc-0b93c74638eb.png">
+<p/>
 
+  
 **PASO 4:** En _"Trigger configuration"_ debemos seleccionar IoT Core como fuente del desencadenador. 
 
-<img width="1510" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181399807-4aff76ec-36c6-4584-bf0f-bd4aeb3023e1.png">
+<p align="center">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181399807-4aff76ec-36c6-4584-bf0f-bd4aeb3023e1.png">
+<p/>
 
 
-**PASO 5:**  En _"IoT type"_ se selecciona_"Custom IoT rule"_, en _"Rule"_ se marca la opción _"Create a new rule"_, se coloca el nombre de la regla, la descripcion y en _"Rule query statement"_ se debe declarar que en cada publicación en el tema creado en el paso # se invoque a la función. 
+**PASO 5:**  En _"IoT type"_ se selecciona _"Custom IoT rule"_, en _"Rule"_ se marca la opción _"Create a new rule"_, se coloca el nombre de la regla, la descripción y en _"Rule query statement"_ se debe declarar que en cada publicación en el tema creado se invoque a la función. 
 
-<img width="831" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181399876-cc9a248a-8cde-4691-8570-f6941073367b.png">
+<p align="center">
+  <img width="500" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181399876-cc9a248a-8cde-4691-8570-f6941073367b.png">
+<p/>
 
 
 ### Elaboración de Politicas y Roles 
 
-Se crearon las políticas para cada uno de los servicios asignando unicamente los permisos necesarios para la interacción entre estos. 
+Se crearon las políticas para cada uno de los servicios asignando únicamente los permisos necesarios para la interacción entre estos. 
 
 Se crearón las siguientes politicas y roles:
 - Política del grupo JetsonNano-car-traffic-accounts
 - Política del Bucket de S3
-- Rol de lambda 
+- Rol de Lambda 
 
 #### Rol de lambda
 
@@ -837,8 +863,6 @@ Se crearón las siguientes politicas y roles:
 <p align="center">
  <img width="1723" alt="Screen Shot 2022-07-28 at 18 15 22" src="https://user-images.githubusercontent.com/31348574/181657690-117858ed-ee29-454a-a950-71ac31ab0f5b.png">
 <p/>
-
-
 
 **PASO 2:** Posteriormente colocarse en la pestaña _"configuration"_, dirigirse a _"Permissions"_ y hacer click en la politica predeterminada 
 
