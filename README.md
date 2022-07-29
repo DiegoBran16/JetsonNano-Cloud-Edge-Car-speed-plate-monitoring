@@ -891,7 +891,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
   <img width="1719" alt="Screen Shot 2022-07-29 at 09 11 12" src="https://user-images.githubusercontent.com/31348574/181790388-46011d26-dac1-4c7d-9a9c-199b7467b20e.png">
 <p/>
 
-**PASO 8:** Posteriormente se observará la politica asignada en el grupo.
+**PASO 8:** Posteriormente se observará la política asignada en el grupo.
 <p align="center">
   <img width="1456" alt="Screen Shot 2022-07-29 at 09 13 22" src="https://user-images.githubusercontent.com/31348574/181790649-8943e428-2432-4c85-8333-c7e773767732.png">
 
