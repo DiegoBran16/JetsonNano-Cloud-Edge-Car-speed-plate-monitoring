@@ -835,6 +835,62 @@ Se crearón las siguientes politicas y roles:
 - Política del Bucket de S3
 - Rol de Lambda 
 
+### Política del Bucket de S3 
+**PASO 1:** Dirigirse al servicio S3 y en la sección _"Buckets"_ hacer click sobre el bucket que se creó anteriormente
+
+<p align="center">
+  <img width="1736" alt="Screen Shot 2022-07-29 at 08 03 29" src="https://user-images.githubusercontent.com/31348574/181777503-7111d6c7-14d2-4640-9714-6fde2eabb177.png">
+<p/>
+
+**PASO 2:** Ubicarse en la pestaña _"Permissions"_, dirigirse a _"Bucket Policy"_ y hacer click en edit
+
+<p align="center">
+  <img width="1792" alt="Screen Shot 2022-07-29 at 08 02 51" src="https://user-images.githubusercontent.com/31348574/181778062-e4dcf1d1-20fd-4302-aba3-2103eebc9012.png">
+<p/>
+
+**PASO 3:** Se escribe la siguiente politica en el espació correspondiente y se hace click en "Save Changes"
+
+```json
+
+{
+    "Version": "2012-10-17",
+    "Id": "JetsonBucketPolicy",
+    "Statement": [
+        {
+            "Sid": "JetsonBucketPolicyAllowPutObject",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::556216965853:user/JetsonNano-car-traffic-user-1"
+            },
+            "Action": [
+                "s3:ListBucket",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb/*",
+                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb"
+            ]
+        },
+        {
+            "Sid": "LamndaAccessForS3",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::556216965853:role/service-role/MQTT-S3getCar-Recognition-Dynamodb-role-12j28le3"
+            },
+            "Action": "s3:GetObject",
+            "Resource": [
+                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb/*",
+                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb"
+            ]
+        }
+    ]
+}
+
+```
+
+
+
+
 #### Rol de lambda
 
 **PASO 1:** Dirigirse a la función lambda creada anteriormente y hacer click en el nombre de la función
