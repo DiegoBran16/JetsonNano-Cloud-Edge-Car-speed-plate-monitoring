@@ -648,19 +648,19 @@ En nuestro caso la región con menor latencia fue US East(Ohio)
 **PASO 12:** Dirigirse a la opción _"setting"s_ al final del menú lateral y guardar el  _"Endpoint"_ del servicio. Este debe ser indicado en el código que se realizará en la tarjeta.
 
 <p align="center">
-  <img width="525" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
+  **editarendpointimg width="525" alt="Captura de Pantalla 2022-07-22 a la(s) 18 23 53" src="https://user-images.githubusercontent.com/31348574/180582916-81774c41-e9c3-44c6-9895-c1f361120fb0.png">
 <p/>
 
 
 
 **PASO 13**  Posicionarse en la opción _"Things"_ que se encuentra dento de la sección _"All Devices"_ de la sección _"Manage"_ y seleccionar el objeto que se creó anteriormente 
 <p align="center">
- <img width="469" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181401678-817eb37d-e863-442a-b426-922fe3fa441d.png">
+ **editarimagenimg width="469" alt="imagen" src="https://user-images.githubusercontent.com/31348574/181401678-817eb37d-e863-442a-b426-922fe3fa441d.png">
 <p/>
 
 **PASO 14** Dirigirse a la sección _"Device Shadows"_ y seleccionar _"Create Shadow"_
 <p align="center">
-  <img width="749" alt="Screen Shot 2022-07-27 at 19 33 02" src="https://user-images.githubusercontent.com/31348574/181401153-4f7808f9-23aa-4940-a2d9-9b353070e1cf.png">
+  **editarimagenimg width="749" alt="Screen Shot 2022-07-27 at 19 33 02" src="https://user-images.githubusercontent.com/31348574/181401153-4f7808f9-23aa-4940-a2d9-9b353070e1cf.png">
 <p/>
 
 **PASO 15** Seleccionar la opción _"Named Shadow"_, colocar un identificador para el tema MQTT y hacer click en_"Create"_, posteriormente se observara el prefijo del tema.
@@ -845,7 +845,7 @@ Se crearón las siguientes politicas y roles:
 **PASO 2:**  Ubicarse en la pestaña _"Permissions"_, desplegar las opciónes disponibles de _"Attach Permissions"_ y seleccionar la opción _"Attach policies"_
 
 <p align="center">
-  <img width="1466" alt="Screen Shot 2022-07-29 at 08 41 01" src="https://user-images.githubusercontent.com/31348574/181784737-84ed4414-1092-47ca-b25f-0943780059c7.png">
+  **editarimagenimg width="1466" alt="Screen Shot 2022-07-29 at 08 41 01" src="https://user-images.githubusercontent.com/31348574/181784737-84ed4414-1092-47ca-b25f-0943780059c7.png">
 <p/>
 
 **PASO 3:** Seguidamente hacer click sobre "Create Policy" y se abriara una nueva ventana.
@@ -865,7 +865,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
         {
             "Effect": "Allow",
             "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::carimages-trafic-jetson-nano-4gb"
+            "Resource": "xxxxxx"
         }
     ]
 }
@@ -922,27 +922,27 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
             "Sid": "JetsonBucketPolicyAllowPutObject",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::556216965853:user/JetsonNano-car-traffic-user-1"
+                "AWS": "xxxxxxx"
             },
             "Action": [
                 "s3:ListBucket",
                 "s3:PutObject"
             ],
             "Resource": [
-                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb/*",
-                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb"
+                "xxxxxxx",
+                "xxxxxxx"
             ]
         },
         {
             "Sid": "LamndaAccessForS3",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::556216965853:role/service-role/MQTT-S3getCar-Recognition-Dynamodb-role-12j28le3"
+                "AWS": "xxxxxx"
             },
             "Action": "s3:GetObject",
             "Resource": [
-                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb/*",
-                "arn:aws:s3:::carimages-traffic-jetson-nano-4gb"
+                "xxxxxx",
+                "xxxxxx"
             ]
         }
     ]
@@ -964,13 +964,13 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
 **PASO 2:** Posteriormente colocarse en la pestaña _"configuration"_, dirigirse a _"Permissions"_ y hacer click en la politica predeterminada 
 
 <p align="center">
-  <img width="1748" alt="Screen Shot 2022-07-28 at 18 17 15" src="https://user-images.githubusercontent.com/31348574/181685772-fd4397c1-46af-43c3-9d52-b61d0155e072.png">
+  **etirarimagenimg width="1748" alt="Screen Shot 2022-07-28 at 18 17 15" src="https://user-images.githubusercontent.com/31348574/181685772-fd4397c1-46af-43c3-9d52-b61d0155e072.png">
 <p/>
 
 **PASO 3:** Se abrirá la configuración del rol y se debe hacer click en _"Add Permissions"_ y posteriormente en _"Create inline policy"_
 
 <p align="center">
-  <img width="1763" alt="Screen Shot 2022-07-28 at 23 11 40" src="https://user-images.githubusercontent.com/31348574/181687253-03a19462-1712-471c-9ae2-d28b48e6862d.png">
+  ** editarimagenimg width="1763" alt="Screen Shot 2022-07-28 at 23 11 40" src="https://user-images.githubusercontent.com/31348574/181687253-03a19462-1712-471c-9ae2-d28b48e6862d.png">
 
 <p/>
 
@@ -990,7 +990,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
         {
             "Effect": "Allow",
             "Action": "logs:CreateLogGroup",
-            "Resource": "arn:aws:logs:us-east-2:556216965853:*"
+            "Resource": "xxxxxxx"
         },
         {
             "Effect": "Allow",
@@ -1006,7 +1006,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
                 "logs:PutLogEvents"
             ],
             "Resource": [
-                "arn:aws:logs:us-east-2:556216965853:log-group:/aws/lambda/MQTT-S3getCar-Recognition-Dynamodb:*"
+                "xxxxxxx"
             ]
         },
         {
@@ -1018,7 +1018,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
                 "dynamodb:DescribeLimits",
                 "dynamodb:DescribeTimeToLive"
             ],
-            "Resource": "arn:aws:dynamodb:us-east-2:556216965853:table/Detected-Cars-DB"
+            "Resource": "xxxxxxx"
         },
         {
             "Sid": "SpecificTable",
@@ -1035,7 +1035,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
                 "dynamodb:Update*",
                 "dynamodb:PutItem"
             ],
-            "Resource": "arn:aws:dynamodb:us-east-2:556216965853:table/Detected-Cars-DB"
+            "Resource": "xxxxxxx"
         },
         {
             "Sid": "SpecificTableRead",
@@ -1049,7 +1049,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
                 "dynamodb:Scan",
                 "dynamodb:BatchWrite*"
             ],
-            "Resource": "arn:aws:dynamodb:us-east-2:556216965853:table/CarOwners"
+            "Resource": "xxxxxxx"
         },
         {
             "Effect": "Allow",
@@ -1061,7 +1061,7 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
                 "s3-object-lambda:Get*",
                 "s3-object-lambda:List*"
             ],
-            "Resource": "arn:aws:s3:::carimages-traffic-jetson-nano-4gb"
+            "Resource": "xxxxxxx"
         }
     ]
 } 
@@ -1072,8 +1072,8 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
 
 **PASO 6:** Colocar un nombre de identificación para la política y hacer click en _"Create Policy"_, posteriormente se obserbará la política creada en el rol. 
 <p align="center">
-  <img width="1327" alt="Screen Shot 2022-07-28 at 23 05 05" src="https://user-images.githubusercontent.com/31348574/181686794-678503a7-4e59-49b3-bae8-f8597d42813f.png">
-  <img width="1457" alt="Screen Shot 2022-07-28 at 23 07 25" src="https://user-images.githubusercontent.com/31348574/181686956-6df22fc7-106d-4a95-8ea3-e356d666cd0c.png">
+  **editar imagen** img width="1327" alt="Screen Shot 2022-07-28 at 23 05 05" src="https://user-images.githubusercontent.com/31348574/181686794-678503a7-4e59-49b3-bae8-f8597d42813f.png">
+  **editar imagen** img width="1457" alt="Screen Shot 2022-07-28 at 23 07 25" src="https://user-images.githubusercontent.com/31348574/181686956-6df22fc7-106d-4a95-8ea3-e356d666cd0c.png">
 <p/>
 
 
