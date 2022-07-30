@@ -18,15 +18,15 @@ from matplotlib import pyplot as plt
 #from torchsummary import summary
 
 # Define ENDPOINT, CLIENT_ID, PATH_TO_CERTIFICATE, PATH_TO_PRIVATE_KEY, PATH_TO_AMAZON_ROOT_CA_1, MESSAGE, TOPIC, and RANGE
-ENDPOINT = "aepu6tvccafn1-ats.iot.us-east-2.amazonaws.com"
+ENDPOINT = "xx"
 CLIENT_ID = "JetsonNano-S1-1"
 PATH_TO_CERTIFICATE = "certificates/6837ec83d51d906362fb175d819d844667e54818c8be688bc276c6bdbdaafdc7-certificate.pem.crt"
 PATH_TO_PRIVATE_KEY = "certificates/6837ec83d51d906362fb175d819d844667e54818c8be688bc276c6bdbdaafdc7-private.pem.key"
 PATH_TO_AMAZON_ROOT_CA_1 = "certificates/AmazonRootCA1.pem"
 #IDAWS = ""
 #SPEEDAWS = 0
-ACCESS_KEY_ID = 'AKIAYDAI5LLOU7NXJP7U'
-SECRET_ACCESS_KEY = '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'
+ACCESS_KEY_ID = 'xx'
+SECRET_ACCESS_KEY = 'xx'
 TOPIC = "$aws/things/JetsonNano-S1-1/shadow/name/detectCar"
 
 net = jetson.inference.detectNet(argv=['--model=Car2.onnx', '--labels=labels.txt',  '--input-blob=input_0',  '--output-cvg=scores',  '--output-bbox=boxes'])
