@@ -61,18 +61,20 @@ class Auto:
 
 class Tracker:
         
-        
+     #Constructor de la clase Tracker con las variables de clase
     def __init__(self):
-        self.autos_detectados = {}  #
-        self.car_id = 1
-        self.centroides = {}
+        self.autos_detectados = {}  #Diccionario de los autos detectados 
+        self.car_id = 1  # Contador de los ids asignados
+        self.centroides = {} #Diccionario donde se almacenan los centroides 
      
 
-
+     #Función que realiza el seguimiento de los vehiculos
     def tracking(self, info):
-
+                
+        #Función ciclica que se ejecuta por cada elemento de la lista de autos detectados por la red. 
+        
         for i in info:
-            x1,y1,x2,y2 = i
+            x1,y1,x2,y2 = i # 
             centro_y = (y2 + y1)//2
             centro_x = (x2 + x1)//2
             
