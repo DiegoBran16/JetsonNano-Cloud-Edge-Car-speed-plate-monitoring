@@ -155,8 +155,6 @@ if __name__ == '__main__':
     timer.start("Load Model")
     net.load(args.trained_model)
     
-    print(summary(net, input_size=(3, 32,32 )))
-
     net = net.to(DEVICE)
     print(f'It took {timer.end("Load Model")} seconds to load the model.')
     if args.net == 'vgg16-ssd':
