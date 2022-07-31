@@ -958,26 +958,26 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
 **PASO 1:** Dirigirse a la función lambda creada anteriormente y hacer click en el nombre de la función
 
 <p align="center">
- <img width="1723" alt="Screen Shot 2022-07-28 at 18 15 22" src="https://user-images.githubusercontent.com/31348574/181657690-117858ed-ee29-454a-a950-71ac31ab0f5b.png">
+ <img width="500" alt="Screen Shot 2022-07-28 at 18 15 22" src="https://user-images.githubusercontent.com/31348574/181657690-117858ed-ee29-454a-a950-71ac31ab0f5b.png">
 <p/>
 
 **PASO 2:** Posteriormente colocarse en la pestaña _"configuration"_, dirigirse a _"Permissions"_ y hacer click en la politica predeterminada 
 
 <p align="center">
-  <img width="1748" alt="Screen Shot 2022-07-28 at 18 17 15" src="https://user-images.githubusercontent.com/31348574/181685772-fd4397c1-46af-43c3-9d52-b61d0155e072.png">
+  <img width="500" alt="Screen Shot 2022-07-28 at 18 17 15" src="https://user-images.githubusercontent.com/31348574/181685772-fd4397c1-46af-43c3-9d52-b61d0155e072.png">
 <p/>
 
 **PASO 3:** Se abrirá la configuración del rol y se debe hacer click en _"Add Permissions"_ y posteriormente en _"Create inline policy"_
 
 <p align="center">
-  <img width="1763" alt="Screen Shot 2022-07-28 at 23 11 40" src="https://user-images.githubusercontent.com/31348574/181687253-03a19462-1712-471c-9ae2-d28b48e6862d.png">
+  <img width="500" alt="Screen Shot 2022-07-28 at 23 11 40" src="https://user-images.githubusercontent.com/31348574/181687253-03a19462-1712-471c-9ae2-d28b48e6862d.png">
 
 <p/>
 
 
 **PASO 4:** Hacer click en _"JSON"_
 <p align="center">
-  <img width="1272" alt="Screen Shot 2022-07-28 at 18 59 53" src="https://user-images.githubusercontent.com/31348574/181661273-7abc2744-ddb9-44a2-ae3c-6c2a7226860f.png">
+  <img width="500" alt="Screen Shot 2022-07-28 at 18 59 53" src="https://user-images.githubusercontent.com/31348574/181661273-7abc2744-ddb9-44a2-ae3c-6c2a7226860f.png">
 <p/>
 
 
@@ -1072,8 +1072,8 @@ Esta política otorga los permisos necesarios para colocar objetos en el bucket.
 
 **PASO 6:** Colocar un nombre de identificación para la política y hacer click en _"Create Policy"_, posteriormente se obserbará la política creada en el rol. 
 <p align="center">
-  <img width="1327" alt="Screen Shot 2022-07-28 at 23 05 05" src="https://user-images.githubusercontent.com/31348574/181686794-678503a7-4e59-49b3-bae8-f8597d42813f.png">
-  <img width="1457" alt="Screen Shot 2022-07-28 at 23 07 25" src="https://user-images.githubusercontent.com/31348574/181686956-6df22fc7-106d-4a95-8ea3-e356d666cd0c.png">
+  <img width="500" alt="Screen Shot 2022-07-28 at 23 05 05" src="https://user-images.githubusercontent.com/31348574/181686794-678503a7-4e59-49b3-bae8-f8597d42813f.png">
+  <img width="500" alt="Screen Shot 2022-07-28 at 23 07 25" src="https://user-images.githubusercontent.com/31348574/181686956-6df22fc7-106d-4a95-8ea3-e356d666cd0c.png">
 <p/>
 
 
