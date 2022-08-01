@@ -1193,7 +1193,8 @@ Lo descrito anteriormente se representa gráficamente a continuación:
 <p/>
 
 
+## Autores:
 
-
-
+### Sara Elizabeth Castro Arriaga
+### Diego Fernando Bran Arriola
 
